@@ -4,13 +4,11 @@ li{
 
 .app-wrapper{
     display: grid;
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 2fr 10fr;
+    grid-template-rows: minmax(60px,auto) 1fr;
+    grid-template-columns: 1fr minmax(100px,200px) minmax(600px,1200px) 1fr;
     grid-gap: 10px;
     grid-template-areas:
           "h h"
           "n c";
-    width: 1200px;
-    margin: 0 auto;
 }
 

@@ -1,0 +1,20 @@
+.MyPosts{
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    display: grid;
+    grid-template: minmax(50px, auto) repeat(5, 1fr)/ 1fr 60px;
+    padding: 0 20px;
+    h3{
+        font-weight: normal;
+    }
+    .MyPosts__input{
+        grid-column: span 2;
+            //убрать обводку при клике
+        outline:none;
+    }
+    .MyPosts__sendButton{
+        grid-column: 2;
+        align-self: self-end;
+    }
+}

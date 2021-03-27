@@ -1,0 +1,15 @@
+.nav {
+    grid-area: n;
+    background: #5692AE;
+    grid-column: 2/3;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    &:hover {
+        color: #9F6841;
+    }
+}
+
+
