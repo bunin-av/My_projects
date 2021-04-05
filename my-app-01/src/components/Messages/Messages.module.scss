@@ -1,0 +1,33 @@
+.messagesWrapper {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-rows: 60px 1fr;
+    background: #1c1d22;
+
+    .messages {
+        grid-column-start: 3;
+        color: white;
+        background: #31333d;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        //&:nth-child(2n){
+        //    color: gold;
+        //}
+    }
+
+    .searchBar {
+        background: #365d98;
+        grid-row-start: 1;
+        grid-column: 1/6;
+        padding-left: 130px;
+        color: white;
+    }
+    .searchButton {
+        //grid-column: 1;
+    }
+}
+
+
+

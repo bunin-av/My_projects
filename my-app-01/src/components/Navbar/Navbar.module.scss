@@ -1,15 +1,31 @@
-.nav {
-    grid-area: n;
-    background: #5692AE;
-    grid-column: 2/3;
+.navbar {
+  grid-area: navbar;
+  background: #31333d;
+  grid-column: 2/3;
+
+  .menu__elem {
+    a {
+      padding: 10px 20px;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1.2px solid #1c1d22;
+
+      &:hover {
+        background: #1c1d22;
+      }
+    }
+
+    a.active {
+      color: #48b9f3;
+      background: #1c1d22;
+    }
+  }
 }
 
-.nav a {
-    color: #fff;
-    text-decoration: none;
-    &:hover {
-        color: #9F6841;
-    }
-}
+
+
+
+
 
 

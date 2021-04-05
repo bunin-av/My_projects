@@ -1,0 +1,12 @@
+.topSidebar {
+  grid-area: top;
+  background: #31333d;
+  grid-column: 2/4;
+  padding: 20px;
+  color: #c1c2c6;
+  font-size: 1.3rem;
+  img{
+    width: 20px;
+  }
+}
+

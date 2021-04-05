@@ -1,20 +1,35 @@
-.MyPosts{
+.MyPosts {
     grid-row-start: 3;
     grid-column-start: 1;
     grid-column-end: 7;
-    display: grid;
-    grid-template: minmax(50px, auto) repeat(5, 1fr)/ 1fr 60px;
+    //display: grid;
+    //grid-template: minmax(50px, auto) repeat(5, 1fr)/ 1fr 60px;
     padding: 0 20px;
-    h3{
+    border: 2px dotted black;
+
+    h3 {
         font-weight: normal;
     }
-    .MyPosts__input{
-        grid-column: span 2;
+
+    .MyPosts__inputItems {
+        //grid-column: span 4;
+        border: 2px dotted black;
+
+        .MyPosts__input {
             //убрать обводку при клике
-        outline:none;
+            outline: none;
+            width: 300px;
+            height: 50px;
+        }
+
+        .MyPosts__sendButton {
+            display: block;
+            //margin-left: auto;
+            grid-column: 3;
+            //align-self: center;
+            outline: none;
+        }
+
     }
-    .MyPosts__sendButton{
-        grid-column: 2;
-        align-self: self-end;
-    }
+
 }
