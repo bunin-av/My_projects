@@ -15,7 +15,7 @@ const Profile = (props: any) => {
           <Wallpaper/>
           <Ava/>
           <Bio/>
-          <MyPosts postsData={props.state.postsData}/>
+          <MyPosts postsData={props.state.postsData} addPost={props.addPost}/>
       </div>
     )
 }

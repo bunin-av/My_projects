@@ -9,7 +9,9 @@ const MessageInput = () => {
     }
     return (
       <div>
-          <textarea ref={sendMessageRef} placeholder="Type your message..."/>
+          <div>
+              <textarea ref={sendMessageRef} placeholder="Type your message..."/>
+          </div>
           <div>
               <button onClick={sendMessage}>Send</button>
           </div>

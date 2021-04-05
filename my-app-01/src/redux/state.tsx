@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
     profilePage: {
         postsData: [
@@ -52,6 +54,16 @@ let state = {
             avaUrl: "https://st2.depositphotos.com/2923991/10508/i/600/depositphotos_105089962-stock-photo-a-smiling-young-woman.jpg"
         },
     ]
+}
+
+export let addPost = (addedPost: string) => {
+    let newPost: { id: number; text: string; likes: number } = {
+        id: 5,
+        text: addedPost,
+        likes: 0
+    }
+    state.profilePage.postsData.push(newPost);
+    rerenderEntireTree(state);
 }
 
 export default state;
