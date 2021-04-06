@@ -27,7 +27,7 @@ const Messages = (props: any) => {
           </div>
           <div className={styles.messages}>
               {messagesElements}
-              <MessageInput/>
+              <MessageInput messagesPage={props.state} sendMessage={props.sendMessage} newMessageUpdate={props.newMessageUpdate}/>
 
           </div>
 

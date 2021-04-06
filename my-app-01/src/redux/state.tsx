@@ -7,6 +7,7 @@ let state = {
             {id: 2, text: "It's my first app!", likes: 12},
             {id: 3, text: "Yo guys", likes: 12},
         ],
+        newPostText: ''
     },
     messagesPage: {
         messagesData: [
@@ -36,6 +37,7 @@ let state = {
                 avaUrl: "https://videozhara.com/storage/xhp6gfqVvUbp0DYMxBic3rlDvh85C4xYAJZNX3vI.jpeg"
             },
         ],
+        newMessageText: ''
     },
     friendsSidebar: [
         {
@@ -56,13 +58,31 @@ let state = {
     ]
 }
 
-export let addPost = (addedPost: string) => {
+export let addPost = () => {
     let newPost: { id: number; text: string; likes: number } = {
         id: 5,
-        text: addedPost,
+        text: state.profilePage.newPostText,
         likes: 0
-    }
+    };
     state.profilePage.postsData.push(newPost);
+    state.profilePage.newPostText = '';
+    rerenderEntireTree(state);
+}
+
+export let newPostUpdate = (newText: string) => {
+    state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+}
+
+export let sendMessage = () => {
+    let newMessage = {id: 5, text: state.messagesPage.newMessageText};
+    state.messagesPage.messagesData.push(newMessage);
+    state.messagesPage.newMessageText = '';
+    rerenderEntireTree(state);
+}
+
+export let newMessageUpdate = (newText: string) => {
+    state.messagesPage.newMessageText = newText;
     rerenderEntireTree(state);
 }
 

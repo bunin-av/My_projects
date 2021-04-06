@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./MyPosts.module.scss";
 import Post from "./Post/Post";
 
+
 const MyPosts = (props: any) => {
     return (
       <div className={styles.MyPosts}>
           <h3>My posts</h3>
-          <PostInput addPost={props.addPost}/>
-          <PostsFeed postsData={props.postsData}/>
+          <PostInput newPostText={props.state.newPostText} addPost={props.addPost} newPostUpdate={props.newPostUpdate}/>
+          <PostsFeed state={props.state.postsData}/>
       </div>
     )
 }
@@ -15,17 +16,24 @@ const MyPosts = (props: any) => {
 
 const PostInput = (props: any) => {
     let newPostElement: any = React.createRef();
+
     let addNewPost = () => {
+        props.addPost();
+    }
+
+    let updateNewPost = () => {
         let text = newPostElement.current.value;
-        props.addPost(text);
-        newPostElement.current.value = "";
+        props.newPostUpdate(text);
     }
 
     return (
       <div className={styles.MyPosts__inputItems}>
           <div>
-              <textarea placeholder="Your news..." ref={newPostElement} className={styles.MyPosts__input}
-                        name="" id=""></textarea>
+              <textarea onChange={updateNewPost}
+                        placeholder="Your news..."
+                        value={props.newPostText}
+                        ref={newPostElement}
+                        className={styles.MyPosts__input}/>
           </div>
           <div>
               <button onClick={addNewPost} className={styles.MyPosts__sendButton}>Send</button>
@@ -36,7 +44,7 @@ const PostInput = (props: any) => {
 
 
 const PostsFeed = (props: any) => {
-    let postElements = props.postsData.map((postsData: { text: string; likes: number; }) =>
+    let postElements = props.state.map((postsData: { text: string; likes: number; }) =>
       <Post message={postsData.text} likes={postsData.likes}/>)
 
     return (

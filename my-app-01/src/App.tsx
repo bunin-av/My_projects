@@ -11,7 +11,12 @@ function App(props: any) {
               <Header/>
               <TopSidebar/>
               <Navbar state={props.state}/>
-              <Content state={props.state} addPost={props.addPost}/>
+              <Content
+                state={props.state}
+                addPost={props.addPost}
+                newPostUpdate={props.newPostUpdate}
+                sendMessage={props.sendMessage}
+                newMessageUpdate={props.newMessageUpdate}/>
           </div>
     );
 }
