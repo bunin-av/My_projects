@@ -7,17 +7,12 @@ import Content from "./components/Content/Content";
 
 function App(props: any) {
     return (
-          <div className="app-wrapper">
-              <Header/>
-              <TopSidebar/>
-              <Navbar state={props.state}/>
-              <Content
-                state={props.state}
-                addPost={props.addPost}
-                newPostUpdate={props.newPostUpdate}
-                sendMessage={props.sendMessage}
-                newMessageUpdate={props.newMessageUpdate}/>
-          </div>
+      <div className="app-wrapper">
+          <Header/>
+          <TopSidebar/>
+          <Navbar state={props.state}/>
+          <Content state={props.state} dispatch={props.dispatch}/>
+      </div>
     );
 }
 

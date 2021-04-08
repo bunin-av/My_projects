@@ -10,8 +10,8 @@ import React from "react";
 const Content = (props: any) => {
     return (
       <div className={styles.wrapper}>
-          <Route path={'/profile'} render={() => <Profile state={props.state.profilePage} addPost={props.addPost} newPostUpdate={props.newPostUpdate}/>}/>
-          <Route path={'/messages'} render={() => <Messages state={props.state.messagesPage} sendMessage={props.sendMessage} newMessageUpdate={props.newMessageUpdate}/>}/>
+          <Route path={'/profile'} render={() => <Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
+          <Route path={'/messages'} render={() => <Messages state={props.state.messagesPage} dispatch={props.dispatch}/>}/>
           <Route path={'/music'} component={Music}/>
           <Route path={'/news'} component={News}/>
           <Route path={'/settings'} component={Settings}/>

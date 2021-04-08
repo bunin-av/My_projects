@@ -7,7 +7,7 @@ const MyPosts = (props: any) => {
     return (
       <div className={styles.MyPosts}>
           <h3>My posts</h3>
-          <PostInput newPostText={props.state.newPostText} addPost={props.addPost} newPostUpdate={props.newPostUpdate}/>
+          <PostInput newPostText={props.state.newPostText} dispatch={props.dispatch}/>
           <PostsFeed state={props.state.postsData}/>
       </div>
     )
@@ -18,12 +18,14 @@ const PostInput = (props: any) => {
     let newPostElement: any = React.createRef();
 
     let addNewPost = () => {
-        props.addPost();
+        let action = {type: "ADD-POST"};
+        props.dispatch(action);
     }
 
     let updateNewPost = () => {
         let text = newPostElement.current.value;
-        props.newPostUpdate(text);
+        let action = {type: "NEW-POST-UPDATE", newText: text};
+        props.dispatch(action);
     }
 
     return (

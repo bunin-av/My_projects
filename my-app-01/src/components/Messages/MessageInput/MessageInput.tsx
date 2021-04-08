@@ -5,12 +5,14 @@ let sendMessageRef: any = React.createRef()
 
 const MessageInput = (props: any) => {
     let sendMessage = () => {
-        props.sendMessage();
+        let action = {type: "SEND-MESSAGE"};
+        props.dispatch(action);
     }
 
     let updateMessageText = () => {
         let text = sendMessageRef.current.value;
-        props.newMessageUpdate(text);
+        let action = {type: "NEW-MESSAGE-UPDATE", newText: text};
+        props.dispatch(action);
     }
 
     return (
