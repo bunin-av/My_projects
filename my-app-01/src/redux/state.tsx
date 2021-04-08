@@ -1,3 +1,9 @@
+const addPostType = "ADD-POST";
+const postUpdateType = "NEW-POST-UPDATE";
+const newMessageUpdateType = "NEW-MESSAGE-UPDATE";
+const sendMessageType = "SEND-MESSAGE";
+
+
 let store = {
     _state: {
         profilePage: {
@@ -90,19 +96,23 @@ let store = {
         this._callSubscriber(this._state);
     },
     dispatch(action: any) {
-        if (action.type === "ADD-POST") {
+        if (action.type === addPostType) {
             this._addPost();
-        } else if (action.type === "NEW-POST-UPDATE") {
+        } else if (action.type === postUpdateType) {
             this._newPostUpdate(action.newText);
-        } else if (action.type === "SEND-MESSAGE") {
+        } else if (action.type === sendMessageType) {
             this._sendMessage();
-        } else if (action.type === "NEW-MESSAGE-UPDATE") {
+        } else if (action.type === newMessageUpdateType) {
             this._newMessageUpdate(action.newText)
         }
     }
 };
 
 
+export const sendMessageActionCreator = () => ({type: sendMessageType});
+export const newMessageUpdateActionCreator = (text: any) => ({type: newMessageUpdateType, newText: text});
+export const addPostActionCreator = () => ({type: addPostType});
+export const newPostUpdateActionCreator = (text: any) => ({type: postUpdateType, newText: text});
 // let state = {
 //     profilePage: {
 //         postsData: [
