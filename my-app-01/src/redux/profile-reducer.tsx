@@ -1,8 +1,17 @@
 const addPostType = "ADD-POST";
 const postUpdateType = "NEW-POST-UPDATE";
 
-type actionType = {type: string, newText: string}
-const profileReducer = (state: any, action: actionType) => {
+let initialState = {
+    postsData: [
+        {id: 1, text: "Hi, man!", likes: 10},
+        {id: 2, text: "It's my first app!", likes: 12},
+        {id: 3, text: "Yo guys", likes: 12},
+    ],
+    newPostText: ''
+};
+
+type actionType = { type: string, newText: string }
+const profileReducer = (state: any = initialState, action: actionType) => {
     switch (action.type) {
         case addPostType:
             let newPost: { id: number; text: string; likes: number } = {

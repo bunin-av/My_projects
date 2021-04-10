@@ -8,6 +8,7 @@ import {Route} from "react-router-dom";
 import React from "react";
 
 const Content = (props: any) => {
+    debugger
     return (
       <div className={styles.wrapper}>
           <Route path={'/profile'} render={() => <Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>

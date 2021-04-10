@@ -12,6 +12,7 @@ const Message = (props: MessagePropsType) => {
 }
 
 const Messages = (props: any) => {
+    debugger
     let messagesElements =
       props.state.messagesData.map((message: { text: string }) =>
         <Message messageText={message.text}/>)
