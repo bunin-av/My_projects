@@ -1,5 +1,5 @@
 import React from "react";
-import {addPostActionCreator, newPostUpdateActionCreator} from "../../../redux/state";
+import {addPostActionCreator, newPostUpdateActionCreator} from "../../../redux/profile-reducer";
 import styles from "./MyPosts.module.scss";
 import Post from "./Post/Post";
 
@@ -15,17 +15,16 @@ const MyPosts = (props: any) => {
 }
 
 
-
 const PostInput = (props: any) => {
-    let newPostElement: any = React.createRef();
-
     let addNewPost = () => {
-        props.dispatch(addPostActionCreator());
+        let action = addPostActionCreator();
+        props.dispatch(action);
     }
 
-    let updateNewPost = () => {
-        let text = newPostElement.current.value;
-        props.dispatch(newPostUpdateActionCreator(text));
+    let updateNewPost = (e: any) => {
+        let text = e.target.value;
+        let action = newPostUpdateActionCreator(text);
+        props.dispatch(action);
     }
 
     return (
@@ -34,7 +33,6 @@ const PostInput = (props: any) => {
               <textarea onChange={updateNewPost}
                         placeholder="Your news..."
                         value={props.newPostText}
-                        ref={newPostElement}
                         className={styles.MyPosts__input}/>
           </div>
           <div>

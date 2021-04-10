@@ -1,8 +1,5 @@
-const addPostType = "ADD-POST";
-const postUpdateType = "NEW-POST-UPDATE";
-const newMessageUpdateType = "NEW-MESSAGE-UPDATE";
-const sendMessageType = "SEND-MESSAGE";
-
+import profileReducer from "./profile-reducer";
+import messagesReducer from "./messages-reducer";
 
 let store = {
     _state: {
@@ -71,48 +68,15 @@ let store = {
     subscribe(observer: any) {
         this._callSubscriber = observer;
     },
-    _addPost() {
-        let newPost: { id: number; text: string; likes: number } = {
-            id: 5,
-            text: this._state.profilePage.newPostText,
-            likes: 0
-        };
-        this._state.profilePage.postsData.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    _newPostUpdate(newText: string) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    _sendMessage() {
-        let newMessage = {id: 5, text: this._state.messagesPage.newMessageText};
-        this._state.messagesPage.messagesData.push(newMessage);
-        this._state.messagesPage.newMessageText = '';
-        this._callSubscriber(this._state);
-    },
-    _newMessageUpdate(newText: string) {
-        this._state.messagesPage.newMessageText = newText;
-        this._callSubscriber(this._state);
-    },
+
     dispatch(action: any) {
-        if (action.type === addPostType) {
-            this._addPost();
-        } else if (action.type === postUpdateType) {
-            this._newPostUpdate(action.newText);
-        } else if (action.type === sendMessageType) {
-            this._sendMessage();
-        } else if (action.type === newMessageUpdateType) {
-            this._newMessageUpdate(action.newText)
-        }
+        profileReducer(this._state.profilePage, action);
+        messagesReducer(this._state.messagesPage, action)
+        this._callSubscriber(this._state);
     }
 };
 
 
-export const sendMessageActionCreator = () => ({type: sendMessageType});
-export const newMessageUpdateActionCreator = (text: any) => ({type: newMessageUpdateType, newText: text});
-export const addPostActionCreator = () => ({type: addPostType});
-export const newPostUpdateActionCreator = (text: any) => ({type: postUpdateType, newText: text});
 // let state = {
 //     profilePage: {
 //         postsData: [
@@ -203,4 +167,4 @@ export const newPostUpdateActionCreator = (text: any) => ({type: postUpdateType,
 //     rerenderEntireTree = observer;
 // }
 
-export default store;
+export default store
