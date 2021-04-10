@@ -10,8 +10,9 @@ function App(props: any) {
       <div className="app-wrapper">
           <Header/>
           <TopSidebar/>
-          <Navbar state={props.state}/>
-          <Content state={props.state} dispatch={props.dispatch}/>
+          <Navbar store={props.store}/>
+          {/*<Content state={props.state} dispatch={props.dispatch}/>*/}
+          <Content store={props.store}/>
       </div>
     );
 }

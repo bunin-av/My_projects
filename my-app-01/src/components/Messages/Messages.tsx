@@ -2,22 +2,17 @@ import React from "react";
 import Dialog from "./Dialog/Dialog";
 import MessageInput from "./MessageInput/MessageInput";
 import styles from './Messages.module.scss'
+import Message from "./Message/Message";
 
-
-type MessagePropsType = {
-    messageText: string;
-}
-const Message = (props: MessagePropsType) => {
-    return <div className={styles.message}>{props.messageText}</div>
-}
 
 const Messages = (props: any) => {
     debugger
     let messagesElements =
-      props.state.messagesData.map((message: { text: string }) =>
+      // props.state.messagesData.map((message: { text: string }) =>
+      props.messagesData.map((message: { text: string }) =>
         <Message messageText={message.text}/>)
     let dialogsElements =
-      props.state.dialogsData.map((dialogs: { id: number; userName: string; avaUrl: string }) =>
+      props.dialogsData.map((dialogs: { id: number; userName: string; avaUrl: string }) =>
         <Dialog userId={dialogs.id} userName={dialogs.userName} avaUrl={dialogs.avaUrl}/>)
 
     return (
@@ -28,7 +23,10 @@ const Messages = (props: any) => {
           </div>
           <div className={styles.messages}>
               {messagesElements}
-              <MessageInput messagesPage={props.state} dispatch={props.dispatch}/>
+              {/*<MessageInput messagesPage={props.state} dispatch={props.dispatch}/>*/}
+              <MessageInput newMessageText={props.newMessageText}
+                            sendMessage={props.sendMessage}
+                            updateMessageText={props.updateMessageText}/>
 
           </div>
 
