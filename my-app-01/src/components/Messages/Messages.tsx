@@ -8,7 +8,6 @@ import Message from "./Message/Message";
 const Messages = (props: any) => {
     debugger
     let messagesElements =
-      // props.state.messagesData.map((message: { text: string }) =>
       props.messagesData.map((message: { text: string }) =>
         <Message messageText={message.text}/>)
     let dialogsElements =
@@ -23,7 +22,6 @@ const Messages = (props: any) => {
           </div>
           <div className={styles.messages}>
               {messagesElements}
-              {/*<MessageInput messagesPage={props.state} dispatch={props.dispatch}/>*/}
               <MessageInput newMessageText={props.newMessageText}
                             sendMessage={props.sendMessage}
                             updateMessageText={props.updateMessageText}/>

@@ -6,15 +6,13 @@ import Bio from "./Bio/Bio";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-
-const Profile = (props: any) => {
+const Profile = () => {
     return (
       <div className={styles.content}>
           <Wallpaper/>
           <Ava/>
           <Bio/>
-          {/*<MyPostsContainer state={props.state} dispatch={props.dispatch}/>*/}
-          <MyPostsContainer store={props.store}/>
+          <MyPostsContainer />
       </div>
     )
 }

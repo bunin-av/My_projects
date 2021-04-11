@@ -5,14 +5,13 @@ import Navbar from "./components/Navbar/Navbar";
 import TopSidebar from "./components/TopSidebar/TopSidebar";
 import Content from "./components/Content/Content";
 
-function App(props: any) {
+function App() {
     return (
       <div className="app-wrapper">
           <Header/>
           <TopSidebar/>
-          <Navbar store={props.store}/>
-          {/*<Content state={props.state} dispatch={props.dispatch}/>*/}
-          <Content store={props.store}/>
+          <Navbar/>
+          <Content/>
       </div>
     );
 }

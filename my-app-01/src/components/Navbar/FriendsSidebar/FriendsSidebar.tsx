@@ -4,7 +4,7 @@ import React from "react";
 const FriendsSidebar = (props: any) => {
 
     let friendElements =
-      props.state.map((friend: { avaUrl: string; userName: string; }) =>
+      props.friendsSidebar.map((friend: { avaUrl: string; userName: string; }) =>
         <FriendElement avaUrl={friend.avaUrl} userName={friend.userName}/>)
 
     return (

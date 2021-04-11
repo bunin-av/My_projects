@@ -7,14 +7,11 @@ import {Route} from "react-router-dom";
 import React from "react";
 import MessagesContainer from "../Messages/MessagesContainer";
 
-const Content = (props: any) => {
-    debugger
+const Content = () => {
     return (
       <div className={styles.wrapper}>
-          {/*<Route path={'/profile'} render={() => <Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>*/}
-          {/*<Route path={'/messages'} render={() => <Messages state={props.state.messagesPage} dispatch={props.dispatch}/>}/>*/}
-          <Route path={'/profile'} render={() => <Profile store={props.store}/>}/>
-          <Route path={'/messages'} render={() => <MessagesContainer store={props.store}/>}/>
+           <Route path={'/profile'} render={() => <Profile />}/>
+          <Route path={'/messages'} render={() => <MessagesContainer />}/>
           <Route path={'/music'} component={Music}/>
           <Route path={'/news'} component={News}/>
           <Route path={'/settings'} component={Settings}/>
