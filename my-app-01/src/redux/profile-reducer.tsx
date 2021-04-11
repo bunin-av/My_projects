@@ -10,8 +10,8 @@ let initialState = {
     newPostText: ''
 };
 
-type actionType = { type: string, newText: string }
-const profileReducer = (state: any = initialState, action: actionType) => {
+// type actionType = { type: string, newText: string }
+const profileReducer = (state: any = initialState, action: any) => {
     switch (action.type) {
         case addPostType:
             let newPost: { id: number; text: string; likes: number } = {

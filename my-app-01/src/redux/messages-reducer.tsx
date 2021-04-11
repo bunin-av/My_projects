@@ -32,8 +32,8 @@ let initialState = {
     newMessageText: ''
 };
 
-type actionType = { type: string, newText: string }
-const messagesReducer = (state: any = initialState, action: actionType) => {
+// type actionType = { type: string, newText: string }
+const messagesReducer = (state: any = initialState, action: any) => {
     switch (action.type) {
         case sendMessageType:
             let newMessage = {id: 5, text: state.newMessageText};
