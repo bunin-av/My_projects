@@ -5,14 +5,14 @@ import styles from './Messages.module.scss'
 import Message from "./Message/Message";
 
 
+
 const Messages = (props: any) => {
-    debugger
     let messagesElements =
       props.messagesData.map((message: { text: string }) =>
-        <Message messageText={message.text}/>)
+        <Message messageText={message.text} key={Math.random()*100} />)
     let dialogsElements =
       props.dialogsData.map((dialogs: { id: number; userName: string; avaUrl: string }) =>
-        <Dialog userId={dialogs.id} userName={dialogs.userName} avaUrl={dialogs.avaUrl}/>)
+        <Dialog userId={dialogs.id} userName={dialogs.userName} avaUrl={dialogs.avaUrl} key={Math.random()*100}/>)
 
     return (
       <div className={styles.messagesWrapper}>

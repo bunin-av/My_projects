@@ -1,11 +1,12 @@
 import styles from './FriendsSidebar.module.scss';
 import React from "react";
 
+
 const FriendsSidebar = (props: any) => {
 
     let friendElements =
       props.friendsSidebar.map((friend: { avaUrl: string; userName: string; }) =>
-        <FriendElement avaUrl={friend.avaUrl} userName={friend.userName}/>)
+        <FriendElement avaUrl={friend.avaUrl} userName={friend.userName} key={Math.random()*100} />)
 
     return (
       <div className={styles.friends}>
