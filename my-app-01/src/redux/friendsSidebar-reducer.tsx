@@ -17,7 +17,7 @@ let initialState = [
     },
 ];
 
-const friendsSidebarReducer = (state: any = initialState, action: any) =>{
+const friendsSidebarReducer = (state = initialState) =>{
     return state;
 }
 

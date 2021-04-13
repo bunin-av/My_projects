@@ -1,0 +1,65 @@
+.wrapper {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 1fr;
+    background: #1c1d22;
+
+    .users {
+        grid-column-start: 1;
+        display: flex;
+        background: #1c1d22;
+        color: white;
+
+        &:hover {
+            background: #31333d;
+        }
+
+        .active {
+            background: #31333d;
+        }
+
+        .userInfo {
+            margin: auto 300px auto 30px;
+
+            a {
+                display: block;
+                color: white;
+                text-decoration: none;
+            }
+        }
+
+        .userAva {
+            grid-column-start: 1;
+            width: 100px;
+            height: 120px;
+            //overflow: hidden;
+            img {
+                height: 100%;
+                width: auto;
+                object-fit: cover;
+                max-width: 100%;
+            }
+        }
+    }
+
+    .searchBar {
+        background: #365d98;
+        grid-row-start: 1;
+        grid-column: 1/6;
+        padding-left: 130px;
+        color: white;
+        padding-top: 15px;
+    }
+    .buttons{
+        margin: auto 300px auto 30px;
+        display: flex;
+        button{
+            width: 100px;
+            margin: 10px;
+        }
+    }
+    .userInfo      {
+        margin: auto 300px auto 30px;
+    }
+}
