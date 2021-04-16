@@ -1,9 +1,10 @@
 import {connect} from "react-redux";
-import FindFriends from "./FindFriends";
+import FindFriends from "./FindFriends-old";
 import {
     setUsersActionCreator,
     toggleFriendActionCreator,
 } from "../../redux/findFriends-reducer";
+
 
 let mapState = (state: any) => {
     return {

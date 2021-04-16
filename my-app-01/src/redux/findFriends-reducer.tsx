@@ -4,44 +4,10 @@ const setUsersType = 'SET-USERS';
 const ToggleFriendType = "TOGGLE-FRIEND";
 
 const initialState = {
-    users: [
-        {
-            id: 1,
-            avaUrl: 'https://e-finland.ru/media/images/img_11/1930-6.jpg',
-            userName: 'Ivan Klimchuk',
-            location: {state: 'Ukraine', city: 'Kiev'},
-            status: 'I am the boss',
-            friend: false,
-        },
-        {
-            id: 2,
-            avaUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThe_PDLW4jcNRNTVNKia1MAInSv5o8CPp62CV803022gJBgLPdew5Xqsa6FzZHxF5fT9I&usqp=CAU',
-            userName: 'Ivan Klimchuk',
-            location: {state: 'Ukraine', city: 'Kiev'},
-            status: 'I am the boss',
-            friend: false,
-        },
-        {
-            id: 3,
-            avaUrl: 'https://fazarosta.com/wp-content/uploads/2018/09/jeto-vam-ne-babochki-v-zhivote-chto-chuvstvuet-muzhchina-kogda-hochet-zhenshhinu-1-945x630.jpg',
-            userName: 'Ivan Klimchuk',
-            location: {state: 'Ukraine', city: 'Kiev'},
-            status: 'I am the boss',
-            friend: false,
-        },
-        {
-            id: 4,
-            avaUrl: 'https://lh3.googleusercontent.com/proxy/a1Mcoipe32c-Pu3_4LBCBBsFQI23g9GptrlRRBmFqhXVrL5EC1q_gt32t_f_a9a82Iu-MFZbw-triI0r-xN7nlJ5cASoh-968LVTXl2rHpsVQP2yKLoWVpUWoI5JAu6qv4o-Qq_1E9Y2JOA9i4Q5g9iGS6BpNg',
-            userName: 'Ivan Klimchuk',
-            location: {state: 'Ukraine', city: 'Kiev'},
-            status: 'I am the boss',
-            friend: false,
-        }
-    ],
+    users: [],
 };
 
-const findFriendsReducer = (state = initialState, action: any) => {
-    debugger
+const findFriendsReducer = (state: any = initialState, action: any) => {
     switch (action.type) {
       // case addFriendActionType:
       //     return {
@@ -66,7 +32,7 @@ const findFriendsReducer = (state = initialState, action: any) => {
         case ToggleFriendType:
             return {
                 ...state,
-                users: state.users.map(u => {
+                users: state.users.map((u: { id: any; friend: any; }) => {
                     if (u.id === action.id) {
                         return {...u, friend: !u.friend}
                     }
