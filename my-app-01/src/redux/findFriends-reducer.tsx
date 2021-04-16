@@ -30,17 +30,21 @@ const findFriendsReducer = (state: any = initialState, action: any) => {
       //         })
       //     }
         case ToggleFriendType:
+            debugger
             return {
                 ...state,
-                users: state.users.map((u: { id: any; friend: any; }) => {
+                users: state.users.map((u: { id: number; followed: boolean; }) => {
                     if (u.id === action.id) {
-                        return {...u, friend: !u.friend}
+                        return {...u, followed: !u.followed}
                     }
                     return u;
                 })
             }
         case setUsersType:
-            return {...state, users: [...state.users, ...action.users]}
+            return {
+                ...state,
+                users: [...state.users, ...action.users]
+            }
         default:
             return state;
     }

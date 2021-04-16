@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import FindFriends from "./FindFriends-old";
+import FindFriends from "./FindFriends";
 import {
     setUsersActionCreator,
     toggleFriendActionCreator,
