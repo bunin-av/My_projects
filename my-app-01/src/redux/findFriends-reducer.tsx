@@ -2,9 +2,14 @@
 // const unFriendActionType = "UNFRIEND";
 const setUsersType = 'SET-USERS';
 const ToggleFriendType = "TOGGLE-FRIEND";
+const changePageType = "CHANGE-PAGE"
+const setTotalCountType = "SET-COUNT"
 
 const initialState = {
     users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1,
 };
 
 const findFriendsReducer = (state: any = initialState, action: any) => {
@@ -43,7 +48,18 @@ const findFriendsReducer = (state: any = initialState, action: any) => {
         case setUsersType:
             return {
                 ...state,
-                users: [...state.users, ...action.users]
+                // users: [...state.users, ...action.users]
+                users: [...action.users]
+            }
+        case changePageType:
+            return {
+                ...state,
+                currentPage: action.page
+            }
+        case setTotalCountType:
+            return {
+                ...state,
+                totalUsersCount: action.count
             }
         default:
             return state;
@@ -56,4 +72,7 @@ export default findFriendsReducer;
 // export const addFriendActionCreator = (id: number) => ({type: addFriendActionType, id: id});
 // export const unFriendActionCreator = (id: number) => ({type: addFriendActionType, id: id});
 export const setUsersActionCreator = (users: any) => ({type: setUsersType, users: users});
-export const toggleFriendActionCreator = (id: number) => ({type: ToggleFriendType, id: id})
+export const toggleFriendActionCreator = (id: number) => ({type: ToggleFriendType, id: id});
+export const changePageAC = (page: number) => ({type: changePageType, page});
+export const setTotalCountAC = (count: number) => ({type: setTotalCountType, count});
+

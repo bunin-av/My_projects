@@ -4,7 +4,15 @@
     grid-template-columns: 1fr;
     grid-template-rows: 60px 1fr;
     background: #1c1d22;
+    color: white;
 
+    span{
+        margin: 0 10px;
+    }
+    .selectedPage{
+        font-weight: bold;
+        color: #48b9f3;
+    }
     .users {
         grid-column-start: 1;
         display: flex;
@@ -59,7 +67,6 @@
             margin: 10px;
         }
     }
-    .userInfo      {
-        margin: auto 300px auto 30px;
-    }
 }
+
+

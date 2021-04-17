@@ -6,15 +6,37 @@ import userPhoto from '../../assets/images/userS1.png'
 
 class FindFriends extends React.Component<any, any> {
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then((response) => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then((response) => {
+            this.props.setUsers(response.data.items);
+            this.props.setTotalCount(response.data.totalCount / 100);
+        });
+    }
+
+    onPageChange = (pageNum: number) => {
+        this.props.changePage(pageNum);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNum}&count=${this.props.pageSize}`).then((response) => {
             this.props.setUsers(response.data.items);
         });
     }
 
     render() {
+        let pagesAmount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        let pages = [];
+        for (let i = 1; i <= pagesAmount; i++) {
+            pages.push(i)
+        }
         return (
           <div className={styles.wrapper}>
               <div className={styles.searchBar}>Search Alex's friends</div>
+              <div>
+                  {
+                      pages.map(p => {
+                          return (this.props.currentPage === p)
+                            ? <span className={styles.selectedPage}>{p}</span>
+                            : <span onClick={() => this.onPageChange(p)}>{p}</span>
+                      })
+                  }
+              </div>
               {
                   this.props.users.map((u: any) => {
                       return (

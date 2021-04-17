@@ -1,6 +1,7 @@
 import {connect} from "react-redux";
 import FindFriends from "./FindFriends";
 import {
+    changePageAC, setTotalCountAC,
     setUsersActionCreator,
     toggleFriendActionCreator,
 } from "../../redux/findFriends-reducer";
@@ -8,7 +9,10 @@ import {
 
 let mapState = (state: any) => {
     return {
-        users: state.findFriendsPage.users
+        users: state.findFriendsPage.users,
+        pageSize: state.findFriendsPage.pageSize,
+        totalUsersCount: state.findFriendsPage.totalUsersCount,
+        currentPage: state.findFriendsPage.currentPage,
     }
 }
 
@@ -25,7 +29,13 @@ let mapDispatch = (dispatch: any) => {
         },
         toggleFriend: (id: number) => {
             dispatch(toggleFriendActionCreator(id));
-        }
+        },
+        changePage: (page: number) => {
+            dispatch(changePageAC(page));
+        },
+        setTotalCount: (count: number) => {
+            dispatch(setTotalCountAC(count))
+        },
     }
 }
 

@@ -24,7 +24,7 @@ const Navbar = () => {
                   <NavLink to="/settings" activeClassName={styles.active}>Settings</NavLink>
               </div>
               <div className={styles.menu__elem}>
-                  <NavLink to="/find_friends">Find Friends</NavLink>
+                  <NavLink to="/find_friends" activeClassName={styles.active}>Find Friends</NavLink>
               </div>
           </div>
           <FriendsSidebarContainer/>
