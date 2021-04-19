@@ -2,14 +2,16 @@
 // const unFriendActionType = "UNFRIEND";
 const setUsersType = 'SET-USERS';
 const ToggleFriendType = "TOGGLE-FRIEND";
-const changePageType = "CHANGE-PAGE"
-const setTotalCountType = "SET-COUNT"
+const changePageType = "CHANGE-PAGE";
+const setTotalCountType = "SET-COUNT";
+const toggleIsFetchingType = 'TOGGLE-IS-FETCHING'
 
 const initialState = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
+    isFetching: false,
 };
 
 const findFriendsReducer = (state: any = initialState, action: any) => {
@@ -61,6 +63,11 @@ const findFriendsReducer = (state: any = initialState, action: any) => {
                 ...state,
                 totalUsersCount: action.count
             }
+        case toggleIsFetchingType:
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         default:
             return state;
     }
@@ -75,4 +82,5 @@ export const setUsersActionCreator = (users: any) => ({type: setUsersType, users
 export const toggleFriendActionCreator = (id: number) => ({type: ToggleFriendType, id: id});
 export const changePageAC = (page: number) => ({type: changePageType, page});
 export const setTotalCountAC = (count: number) => ({type: setTotalCountType, count});
+export const togglePreloaderAC = (isFetching: boolean) => ({type:toggleIsFetchingType, isFetching})
 

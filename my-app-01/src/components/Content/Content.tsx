@@ -6,7 +6,7 @@ import Profile from "../Profile/Profile";
 import {Route} from "react-router-dom";
 import React from "react";
 import MessagesContainer from "../Messages/MessagesContainer";
-import FindFriendsContainer from "../findFriends/findFriendsContainer";
+import FindFriendsContainer from "../FindFriends/FindFriendsContainer";
 
 const Content = () => {
     return (
