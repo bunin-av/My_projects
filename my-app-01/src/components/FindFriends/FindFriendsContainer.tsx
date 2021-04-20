@@ -1,10 +1,5 @@
 import {connect} from "react-redux";
-import {
-    changePageAC,
-    setTotalCountAC,
-    setUsersActionCreator,
-    toggleFriendActionCreator, togglePreloaderAC,
-} from "../../redux/findFriends-reducer";
+import {changePage, setTotalCount, setUsers, toggleFriend, toggleIsFetching,} from "../../redux/findFriends-reducer";
 import React from "react";
 import axios from "axios";
 import FindFriends from "./FindFriends";
@@ -39,50 +34,42 @@ class FindFriendsContainerAPI extends React.Component<any, any> {
                          onPageChange={this.onPageChange}
                          toggleFriend={this.props.toggleFriend}
                          users={this.props.users}/>
-
         </>
     }
 }
 
-let
-  mapState = (state: any) => {
-      return {
-          users: state.findFriendsPage.users,
-          pageSize: state.findFriendsPage.pageSize,
-          totalUsersCount: state.findFriendsPage.totalUsersCount,
-          currentPage: state.findFriendsPage.currentPage,
-          isFetching: state.findFriendsPage.isFetching
-      }
-  }
+let mapState = (state: any) => {
+    return {
+        users: state.findFriendsPage.users,
+        pageSize: state.findFriendsPage.pageSize,
+        totalUsersCount: state.findFriendsPage.totalUsersCount,
+        currentPage: state.findFriendsPage.currentPage,
+        isFetching: state.findFriendsPage.isFetching
+    }
+}
 
-let
-  mapDispatch = (dispatch: any) => {
-      return {
-          // addFriend: (id: number)=>{
-          //     dispatch(addFriendActionCreator(id));
-          // },
-          // unFriend: (id: number)=>{
-          //     dispatch(unFriendActionCreator(id));
-          // },
-          setUsers: (users: any) => {
-              dispatch(setUsersActionCreator(users));
-          },
-          toggleFriend: (id: number) => {
-              dispatch(toggleFriendActionCreator(id));
-          },
-          changePage: (page: number) => {
-              dispatch(changePageAC(page));
-          },
-          setTotalCount: (count: number) => {
-              dispatch(setTotalCountAC(count))
-          },
-          toggleIsFetching: (isFetching: boolean) => {
-              dispatch(togglePreloaderAC(isFetching))
-          }
-      }
-  }
+// let mapDispatch = (dispatch: any) => {
+//     return {
+//         setUsers: (users: any) => {
+//             dispatch(setUsersActionCreator(users));
+//         },
+//         toggleFriend: (id: number) => {
+//             dispatch(toggleFriendActionCreator(id));
+//         },
+//         changePage: (page: number) => {
+//             dispatch(changePageAC(page));
+//         },
+//         setTotalCount: (count: number) => {
+//             dispatch(setTotalCountAC(count));
+//         },
+//         toggleIsFetching: (isFetching: boolean) => {
+//             dispatch(togglePreloaderAC(isFetching));
+//         }
+//     }
+// }
 
-const
-  FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
+// const FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
+const FindFriendsContainer = connect(mapState,
+  {setUsers, toggleFriend, changePage, setTotalCount, toggleIsFetching})(FindFriendsContainerAPI);
 
-export default FindFriendsContainer
+export default FindFriendsContainer;

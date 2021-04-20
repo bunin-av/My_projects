@@ -1,4 +1,3 @@
-import profileReducer from "./profile-reducer";
 import messagesReducer from "./messages-reducer";
 
 let store = {
@@ -70,7 +69,7 @@ let store = {
     },
 
     dispatch(action: any) {
-        profileReducer(this._state.profilePage, action);
+        // profileReducer(this._state.profilePage, action);
         messagesReducer(this._state.messagesPage, action)
         this._callSubscriber(this._state);
     }
@@ -166,5 +165,3 @@ let store = {
 // export const subscriber = (observer: any) => {
 //     rerenderEntireTree = observer;
 // }
-
-export default store

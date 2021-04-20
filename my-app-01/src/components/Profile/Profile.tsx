@@ -6,12 +6,12 @@ import Bio from "./Bio/Bio";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
-const Profile = () => {
+const Profile = (props:any) => {
     return (
       <div className={styles.content}>
-          <Wallpaper/>
-          <Ava/>
-          <Bio/>
+          <Wallpaper />
+          <Ava {...props.userProfile}/>
+          <Bio {...props.userProfile}/>
           <MyPostsContainer />
       </div>
     )

@@ -1,6 +1,7 @@
 import styles from './FindFriends.module.scss';
 import React from "react";
 import userPhoto from '../../assets/images/userS1.png'
+import {NavLink} from 'react-router-dom';
 
 
 const FindFriends = (props: any) => {
@@ -16,8 +17,8 @@ const FindFriends = (props: any) => {
               {
                   pages.map(p => {
                       return (props.currentPage === p)
-                        ? <span className={styles.selectedPage}>{p}</span>
-                        : <span onClick={() => props.onPageChange(p)}>{p}</span>
+                        ? <span className={styles.selectedPage} key={Math.random() * 1000}>{p}</span>
+                        : <span onClick={() => props.onPageChange(p)} key={Math.random() * 1000}>{p}</span>
                   })
               }
           </div>
@@ -26,7 +27,9 @@ const FindFriends = (props: any) => {
                   return (
                     <div className={styles.users} key={u.id}>
                         <div className={styles.userAva}>
-                            <img src={u.photos.large != null ? u.photos.large : userPhoto} alt=""/>
+                            <NavLink to={'/profile/'+ u.id}>
+                                <img src={u.photos.large != null ? u.photos.large : userPhoto} alt=""/>
+                            </NavLink>
                         </div>
                         <div className={styles.userInfo}>
                             <div>{u.name}</div>

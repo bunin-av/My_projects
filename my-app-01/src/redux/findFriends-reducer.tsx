@@ -1,5 +1,3 @@
-// const addFriendActionType = "ADD-FRIEND";
-// const unFriendActionType = "UNFRIEND";
 const setUsersType = 'SET-USERS';
 const ToggleFriendType = "TOGGLE-FRIEND";
 const changePageType = "CHANGE-PAGE";
@@ -16,28 +14,7 @@ const initialState = {
 
 const findFriendsReducer = (state: any = initialState, action: any) => {
     switch (action.type) {
-      // case addFriendActionType:
-      //     return {
-      //         ...state,
-      //         users: state.users.map(u => {
-      //             if (u.id === action.id) {
-      //                 return {...u, friend: true}
-      //             }
-      //             return u;
-      //         })
-      //     }
-      // case unFriendActionType:
-      //     return {
-      //         ...state,
-      //         users: state.users.map(u => {
-      //             if (u.id === action.id) {
-      //                 return {...u, friend: false}
-      //             }
-      //             return u;
-      //         })
-      //     }
         case ToggleFriendType:
-            debugger
             return {
                 ...state,
                 users: state.users.map((u: { id: number; followed: boolean; }) => {
@@ -76,11 +53,9 @@ const findFriendsReducer = (state: any = initialState, action: any) => {
 
 export default findFriendsReducer;
 
-// export const addFriendActionCreator = (id: number) => ({type: addFriendActionType, id: id});
-// export const unFriendActionCreator = (id: number) => ({type: addFriendActionType, id: id});
-export const setUsersActionCreator = (users: any) => ({type: setUsersType, users: users});
-export const toggleFriendActionCreator = (id: number) => ({type: ToggleFriendType, id: id});
-export const changePageAC = (page: number) => ({type: changePageType, page});
-export const setTotalCountAC = (count: number) => ({type: setTotalCountType, count});
-export const togglePreloaderAC = (isFetching: boolean) => ({type:toggleIsFetchingType, isFetching})
+export const setUsers = (users: any) => ({type: setUsersType, users: users});
+export const toggleFriend = (id: number) => ({type: ToggleFriendType, id: id});
+export const changePage = (page: number) => ({type: changePageType, page});
+export const setTotalCount = (count: number) => ({type: setTotalCountType, count});
+export const toggleIsFetching = (isFetching: boolean) => ({type:toggleIsFetchingType, isFetching})
 
