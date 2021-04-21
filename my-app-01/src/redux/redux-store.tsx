@@ -15,5 +15,11 @@ let reducers = combineReducers({
 
 let store = createStore(reducers)
 
+declare global {
+    interface Window {
+        store: any
+    }
+}
+window.store = store
 
 export default store

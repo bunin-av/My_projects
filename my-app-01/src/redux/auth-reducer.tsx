@@ -6,7 +6,8 @@ const initialState = {
     login: null,
     isAuth: false,
 }
-const authReducer = (state: any = initialState, action: { type: string, data: { id: number, email: string, login: string } }) => {
+
+const authReducer = (state = initialState, action: { type: string, data: { id: number, email: string, login: string } }) => {
     switch (action.type) {
         case SET_AUTH:
             return {
@@ -15,7 +16,7 @@ const authReducer = (state: any = initialState, action: { type: string, data: { 
                 isAuth: true,
             }
         default:
-            return state;
+            return state
     }
 }
 

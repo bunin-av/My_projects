@@ -2,6 +2,7 @@ import styles from './FindFriends.module.scss';
 import React from "react";
 import userPhoto from '../../assets/images/userS1.png'
 import {NavLink} from 'react-router-dom';
+import axios from "axios";
 
 
 const FindFriends = (props: any) => {
@@ -37,7 +38,25 @@ const FindFriends = (props: any) => {
                         </div>
                         <div className={styles.buttons}>
                             <div>
-                                <button onClick={() => props.toggleFriend(u.id)}>
+                                <button onClick={() => {
+                                    if (!u.followed) {
+                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
+                                          {withCredentials: true, headers: {"API-KEY": "7e59ed63-3050-4cd5-9cf6-cc004ac69363"}})
+                                          .then((response) => {
+                                              if (response.data.resultCode === 0) {
+                                                  props.toggleFriend(u.id)
+                                              }
+                                          })
+                                    } else if (u.followed) {
+                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                                          {withCredentials: true, headers: {"API-KEY": "7e59ed63-3050-4cd5-9cf6-cc004ac69363"}})
+                                          .then((response) => {
+                                              if (response.data.resultCode === 0) {
+                                                  props.toggleFriend(u.id)
+                                              }
+                                          })
+                                    }
+                                }}>
                                     {u.followed ? 'Unfriend' : 'Add friend'}
                                 </button>
                             </div>
