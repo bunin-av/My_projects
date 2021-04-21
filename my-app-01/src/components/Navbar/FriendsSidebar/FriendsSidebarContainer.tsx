@@ -1,22 +1,21 @@
 import FriendsSidebar from "./FriendsSidebar";
 import {connect} from "react-redux";
+import React from "react";
 
 
-
-let mapStateToProps = (state:any)=>{
-    return {
-        friendsSidebar: state.friendsSidebar
+class FriendsSidebarContainer extends React.Component<any, any> {
+    render() {
+        return <FriendsSidebar {...this.props} />
     }
 }
 
-const FriendsSidebarContainer = connect(mapStateToProps)(FriendsSidebar)
+let mapStateToProps = (state: any) => {
+    return {
+        friendList: state.findFriendsPage.friendList
+    }
+}
 
-
-export default FriendsSidebarContainer
-
-
-
-
+export default connect(mapStateToProps)(FriendsSidebarContainer)
 
 
 // const FriendsSidebarContainer = () => {

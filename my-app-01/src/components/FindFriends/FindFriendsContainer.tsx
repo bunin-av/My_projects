@@ -1,43 +1,44 @@
 import {connect} from "react-redux";
-import {changePage, setTotalCount, setUsers, toggleFriend, toggleIsFetching,} from "../../redux/findFriends-reducer";
+import {
+    changePage,
+    setFriendList,
+    setTotalCount,
+    setUsers,
+    toggleFriend,
+    toggleIsFetching,
+} from "../../redux/findFriends-reducer";
 import React from "react";
-import axios from "axios";
 import FindFriends from "./FindFriends";
 import Preloader from "../common/Preloader/Preloader";
+import {usersAPI} from "../../API/API";
 
 
 class FindFriendsContainerAPI extends React.Component<any, any> {
     componentDidMount() {
         this.props.toggleIsFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-          {withCredentials: true})
-          .then((response) => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(response.data.items);
-            this.props.setTotalCount(response.data.totalCount / 100);
-        });
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+          .then((data) => {
+              this.props.toggleIsFetching(false);
+              this.props.setUsers(data.items);
+              this.props.setTotalCount(data.totalCount / 100);
+              this.props.setFriendList(this.props.users.filter((u: any) => u.followed))
+          });
     }
 
     onPageChange = (pageNum: number) => {
         this.props.toggleIsFetching(true);
         this.props.changePage(pageNum);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNum}&count=${this.props.pageSize}`,
-          {withCredentials: true})
-          .then((response) => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(response.data.items);
-        });
+        usersAPI.getUsers(pageNum, this.props.pageSize)
+          .then((data) => {
+              this.props.toggleIsFetching(false);
+              this.props.setUsers(data.items);
+          });
     }
 
     render() {
         return <>
             {(this.props.isFetching) ? <Preloader/> : null}
-            <FindFriends totalUsersCount={this.props.totalUsersCount}
-                         pageSize={this.props.pageSize}
-                         currentPage={this.props.currentPage}
-                         onPageChange={this.onPageChange}
-                         toggleFriend={this.props.toggleFriend}
-                         users={this.props.users}/>
+            <FindFriends {...this.props} onPageChange={this.onPageChange}/>
         </>
     }
 }
@@ -48,7 +49,8 @@ let mapState = (state: any) => {
         pageSize: state.findFriendsPage.pageSize,
         totalUsersCount: state.findFriendsPage.totalUsersCount,
         currentPage: state.findFriendsPage.currentPage,
-        isFetching: state.findFriendsPage.isFetching
+        isFetching: state.findFriendsPage.isFetching,
+        friendList: state.findFriendsPage.friendList,
     }
 }
 
@@ -74,6 +76,6 @@ let mapState = (state: any) => {
 
 // const FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
 const FindFriendsContainer = connect(mapState,
-  {setUsers, toggleFriend, changePage, setTotalCount, toggleIsFetching})(FindFriendsContainerAPI);
+  {setUsers, toggleFriend, changePage, setTotalCount, toggleIsFetching, setFriendList})(FindFriendsContainerAPI);
 
 export default FindFriendsContainer;

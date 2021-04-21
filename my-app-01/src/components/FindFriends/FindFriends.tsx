@@ -2,7 +2,7 @@ import styles from './FindFriends.module.scss';
 import React from "react";
 import userPhoto from '../../assets/images/userS1.png'
 import {NavLink} from 'react-router-dom';
-import axios from "axios";
+import {usersAPI} from "../../API/API";
 
 
 const FindFriends = (props: any) => {
@@ -28,7 +28,7 @@ const FindFriends = (props: any) => {
                   return (
                     <div className={styles.users} key={u.id}>
                         <div className={styles.userAva}>
-                            <NavLink to={'/profile/'+ u.id}>
+                            <NavLink to={'/profile/' + u.id}>
                                 <img src={u.photos.large != null ? u.photos.large : userPhoto} alt=""/>
                             </NavLink>
                         </div>
@@ -40,19 +40,19 @@ const FindFriends = (props: any) => {
                             <div>
                                 <button onClick={() => {
                                     if (!u.followed) {
-                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
-                                          {withCredentials: true, headers: {"API-KEY": "7e59ed63-3050-4cd5-9cf6-cc004ac69363"}})
-                                          .then((response) => {
-                                              if (response.data.resultCode === 0) {
-                                                  props.toggleFriend(u.id)
+                                        usersAPI.followUser(u.id)
+                                          .then((data) => {
+                                              if (data.resultCode === 0) {
+                                                  props.toggleFriend(u.id);
+                                                  props.setFriendList(props.users.filter((u: any) => u.followed))
                                               }
                                           })
                                     } else if (u.followed) {
-                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                                          {withCredentials: true, headers: {"API-KEY": "7e59ed63-3050-4cd5-9cf6-cc004ac69363"}})
-                                          .then((response) => {
-                                              if (response.data.resultCode === 0) {
+                                        usersAPI.unfollowUser(u.id)
+                                          .then((data) => {
+                                              if (data.resultCode === 0) {
                                                   props.toggleFriend(u.id)
+                                                  props.setFriendList(props.users.filter((u: any) => u.followed))
                                               }
                                           })
                                     }
