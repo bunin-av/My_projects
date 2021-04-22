@@ -38,25 +38,29 @@ const FindFriends = (props: any) => {
                         </div>
                         <div className={styles.buttons}>
                             <div>
-                                <button onClick={() => {
-                                    if (!u.followed) {
-                                        usersAPI.followUser(u.id)
-                                          .then((data) => {
-                                              if (data.resultCode === 0) {
-                                                  props.toggleFriend(u.id);
-                                                  props.setFriendList(props.users.filter((u: any) => u.followed))
-                                              }
-                                          })
-                                    } else if (u.followed) {
-                                        usersAPI.unfollowUser(u.id)
-                                          .then((data) => {
-                                              if (data.resultCode === 0) {
-                                                  props.toggleFriend(u.id)
-                                                  props.setFriendList(props.users.filter((u: any) => u.followed))
-                                              }
-                                          })
-                                    }
-                                }}>
+                                <button disabled={props.followingInProgress.some((id: number) => id === u.id)}
+                                        onClick={() => {
+                                            props.followingProgress(true, u.id);
+                                            if (!u.followed) {
+                                                usersAPI.followUser(u.id)
+                                                  .then((data) => {
+                                                      if (data.resultCode === 0) {
+                                                          props.toggleFriend(u.id);
+                                                          props.setFriendList(props.users.filter((u: any) => u.followed));
+                                                          props.followingProgress(false, u.id);
+                                                      }
+                                                  })
+                                            } else if (u.followed) {
+                                                usersAPI.unfollowUser(u.id)
+                                                  .then((data) => {
+                                                      if (data.resultCode === 0) {
+                                                          props.toggleFriend(u.id)
+                                                          props.setFriendList(props.users.filter((u: any) => u.followed))
+                                                          props.followingProgress(false, u.id);
+                                                      }
+                                                  })
+                                            }
+                                        }}>
                                     {u.followed ? 'Unfriend' : 'Add friend'}
                                 </button>
                             </div>

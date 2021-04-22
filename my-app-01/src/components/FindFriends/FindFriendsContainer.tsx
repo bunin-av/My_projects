@@ -1,6 +1,6 @@
 import {connect} from "react-redux";
 import {
-    changePage,
+    changePage, followingProgress,
     setFriendList,
     setTotalCount,
     setUsers,
@@ -51,6 +51,7 @@ let mapState = (state: any) => {
         currentPage: state.findFriendsPage.currentPage,
         isFetching: state.findFriendsPage.isFetching,
         friendList: state.findFriendsPage.friendList,
+        followingInProgress: state.findFriendsPage.followingInProgress,
     }
 }
 
@@ -76,6 +77,14 @@ let mapState = (state: any) => {
 
 // const FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
 const FindFriendsContainer = connect(mapState,
-  {setUsers, toggleFriend, changePage, setTotalCount, toggleIsFetching, setFriendList})(FindFriendsContainerAPI);
+  {
+      setUsers,
+      toggleFriend,
+      changePage,
+      setTotalCount,
+      toggleIsFetching,
+      setFriendList,
+      followingProgress,
+  })(FindFriendsContainerAPI);
 
 export default FindFriendsContainer;

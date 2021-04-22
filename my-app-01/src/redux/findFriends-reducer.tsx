@@ -4,6 +4,7 @@ const changePageType = "CHANGE-PAGE";
 const setTotalCountType = "SET-COUNT";
 const toggleIsFetchingType = 'TOGGLE-IS-FETCHING';
 const SET_FRIEND_LIST = 'SET_FRIEND_LIST';
+const FOllOWING_IN_PROGRESS = 'FOllOWING_IN_PROGRESS';
 
 const initialState = {
     users: [],
@@ -12,6 +13,7 @@ const initialState = {
     currentPage: 1,
     isFetching: false,
     friendList: [],
+    followingInProgress: [],
 };
 
 const findFriendsReducer = (state: any = initialState, action: any) => {
@@ -52,6 +54,14 @@ const findFriendsReducer = (state: any = initialState, action: any) => {
                 ...state,
                 friendList: [...action.friends]
             }
+        case FOllOWING_IN_PROGRESS:
+            return {
+                ...state,
+                followingInProgress:
+                  (action.isFetching)
+                    ? [...state.followingInProgress, action.userId]
+                    : state.followingInProgress.filter((id: number) => id !== action.userId)
+            }
         default:
             return state;
     }
@@ -65,4 +75,7 @@ export const toggleFriend = (id: number) => ({type: ToggleFriendType, id: id});
 export const changePage = (page: number) => ({type: changePageType, page});
 export const setTotalCount = (count: number) => ({type: setTotalCountType, count});
 export const toggleIsFetching = (isFetching: boolean) => ({type: toggleIsFetchingType, isFetching});
-export const setFriendList = (friends: any) => ({type: SET_FRIEND_LIST, friends})
+export const setFriendList = (friends: any) => ({type: SET_FRIEND_LIST, friends});
+export const followingProgress = (isFetching: boolean, userId: number) => ({
+    type: FOllOWING_IN_PROGRESS, isFetching, userId
+});
