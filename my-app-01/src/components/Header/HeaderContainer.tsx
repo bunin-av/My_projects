@@ -1,21 +1,21 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {setAuth} from "../../redux/auth-reducer";
-import {profileAPI} from "../../API/API";
+import {getAuthMe} from "../../redux/auth-reducer";
 
 
 class HeaderContainer extends React.Component<any, any> {
     componentDidMount() {
-        profileAPI.getAuthMe()
-          .then((data) => {
-            let {id, email, login} = data.data;
-            this.props.setAuth(id, email, login);
-        })
+        // profileAPI.getAuthMe()
+        //   .then((data) => {
+        //     let {id, email, login} = data.data;
+        //     this.props.setAuth(id, email, login);
+        // })
+        this.props.getAuthMe();
     }
 
     render() {
-        return <Header {...this.props}/>;
+        return <Header {...this.props}/>
     }
 }
 
@@ -26,4 +26,4 @@ const mapState = (state: { auth: { login: string, isAuth: boolean } }) => {
     }
 }
 
-export default connect(mapState, {setAuth})(HeaderContainer)
+export default connect(mapState, {getAuthMe})(HeaderContainer)

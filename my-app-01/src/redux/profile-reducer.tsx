@@ -1,6 +1,8 @@
-const addPostType = "ADD-POST";
-const postUpdateType = "NEW-POST-UPDATE";
-const setUserProfileType = 'SET-USER-PROFILE';
+import {profileAPI} from "../API/API";
+
+const ADD_POST = "ADD_POST";
+const NEW_POST_UPDATE = "NEW_POST_UPDATE";
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {
     postsData: [
@@ -13,9 +15,9 @@ let initialState = {
 };
 
 
-const profileReducer = (state = initialState, action: { type: string; newText: string; userProfile: any}) => {
+const profileReducer = (state = initialState, action: { type: string; newText: string; userProfile: any }) => {
     switch (action.type) {
-        case addPostType: {
+        case ADD_POST: {
             let newPost: { id: number; text: string; likes: number } = {
                 id: 5,
                 text: state.newPostText,
@@ -23,10 +25,10 @@ const profileReducer = (state = initialState, action: { type: string; newText: s
             };
             return {...state, postsData: [...state.postsData, newPost], newPostText: ''};
         }
-        case postUpdateType: {
+        case NEW_POST_UPDATE: {
             return {...state, newPostText: action.newText};
         }
-        case setUserProfileType: {
+        case SET_USER_PROFILE: {
             return {...state, userProfile: action.userProfile}
         }
         default:
@@ -34,8 +36,22 @@ const profileReducer = (state = initialState, action: { type: string; newText: s
     }
 }
 
-export const addPostActionCreator = () => ({type: addPostType});
-export const newPostUpdateActionCreator = (text: string) => ({type: postUpdateType, newText: text});
-export const setUserProfile = (userProfile: boolean) => ({type: setUserProfileType, userProfile})
-
 export default profileReducer;
+
+//AC
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const newPostUpdateActionCreator = (text: string) => ({type: NEW_POST_UPDATE, newText: text});
+export const setUserProfile = (userProfile: boolean) => ({type: SET_USER_PROFILE, userProfile})
+
+//thunks
+export const getUserProfile = (userId: number, authId: number) => {
+    return (dispatch: (arg0: { type: string; userProfile: boolean; }) => void) => {
+        if (!userId) userId = authId;
+        profileAPI.getUserProfile(userId)
+          .then((data) => {
+              dispatch(setUserProfile(data));
+          });
+    }
+}
+
+

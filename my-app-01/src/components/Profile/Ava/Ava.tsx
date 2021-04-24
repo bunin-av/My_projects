@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Ava.module.scss"
 import Preloader from "../../common/Preloader/Preloader";
+import userPhoto from "../../../assets/images/userS1.png";
 
 const Ava = (props: any) => {
 
@@ -14,7 +15,7 @@ const Ava = (props: any) => {
         return <Preloader/>
     }
     return <div className={styles.Ava}>
-        <img src={props.photos.large} alt=""/>
+        <img src={props.photos.large != null ? props.photos.large : userPhoto} alt=""/>
     </div>
 }
 

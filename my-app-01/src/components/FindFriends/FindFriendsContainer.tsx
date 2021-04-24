@@ -1,38 +1,32 @@
 import {connect} from "react-redux";
-import {
-    changePage, followingProgress,
-    setFriendList,
-    setTotalCount,
-    setUsers,
-    toggleFriend,
-    toggleIsFetching,
-} from "../../redux/findFriends-reducer";
+import {followingProgress, followUnfollowUser, getUsers, toggleFriend,} from "../../redux/findFriends-reducer";
 import React from "react";
 import FindFriends from "./FindFriends";
 import Preloader from "../common/Preloader/Preloader";
-import {usersAPI} from "../../API/API";
 
 
 class FindFriendsContainerAPI extends React.Component<any, any> {
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-          .then((data) => {
-              this.props.toggleIsFetching(false);
-              this.props.setUsers(data.items);
-              this.props.setTotalCount(data.totalCount / 100);
-              this.props.setFriendList(this.props.users.filter((u: any) => u.followed))
-          });
+        // this.props.toggleIsFetching(true);
+        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+        //   .then((data) => {
+        //       this.props.toggleIsFetching(false);
+        //       this.props.setUsers(data.items);
+        //       this.props.setTotalCount(data.totalCount / 100);
+        //       this.props.setFriendList(this.props.users.filter((u: any) => u.followed))
+        //   });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize, false)
     }
 
     onPageChange = (pageNum: number) => {
-        this.props.toggleIsFetching(true);
-        this.props.changePage(pageNum);
-        usersAPI.getUsers(pageNum, this.props.pageSize)
-          .then((data) => {
-              this.props.toggleIsFetching(false);
-              this.props.setUsers(data.items);
-          });
+        // this.props.toggleIsFetching(true);
+        // this.props.changePage(pageNum);
+        // usersAPI.getUsers(pageNum, this.props.pageSize)
+        //   .then((data) => {
+        //       this.props.toggleIsFetching(false);
+        //       this.props.setUsers(data.items);
+        //   });
+        this.props.getUsers(pageNum, this.props.pageSize, true);
     }
 
     render() {
@@ -78,13 +72,15 @@ let mapState = (state: any) => {
 // const FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
 const FindFriendsContainer = connect(mapState,
   {
-      setUsers,
+      // setUsers,
       toggleFriend,
-      changePage,
-      setTotalCount,
-      toggleIsFetching,
-      setFriendList,
+      // changePage,
+      // setTotalCount,
+      // toggleIsFetching,
+      // setFriendList,
       followingProgress,
+      getUsers,
+      followUnfollowUser,
   })(FindFriendsContainerAPI);
 
 export default FindFriendsContainer;

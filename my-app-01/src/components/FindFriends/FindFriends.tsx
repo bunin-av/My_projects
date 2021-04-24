@@ -2,7 +2,6 @@ import styles from './FindFriends.module.scss';
 import React from "react";
 import userPhoto from '../../assets/images/userS1.png'
 import {NavLink} from 'react-router-dom';
-import {usersAPI} from "../../API/API";
 
 
 const FindFriends = (props: any) => {
@@ -40,26 +39,27 @@ const FindFriends = (props: any) => {
                             <div>
                                 <button disabled={props.followingInProgress.some((id: number) => id === u.id)}
                                         onClick={() => {
-                                            props.followingProgress(true, u.id);
-                                            if (!u.followed) {
-                                                usersAPI.followUser(u.id)
-                                                  .then((data) => {
-                                                      if (data.resultCode === 0) {
-                                                          props.toggleFriend(u.id);
-                                                          props.setFriendList(props.users.filter((u: any) => u.followed));
-                                                          props.followingProgress(false, u.id);
-                                                      }
-                                                  })
-                                            } else if (u.followed) {
-                                                usersAPI.unfollowUser(u.id)
-                                                  .then((data) => {
-                                                      if (data.resultCode === 0) {
-                                                          props.toggleFriend(u.id)
-                                                          props.setFriendList(props.users.filter((u: any) => u.followed))
-                                                          props.followingProgress(false, u.id);
-                                                      }
-                                                  })
-                                            }
+                                            // props.followingProgress(true, u.id);
+                                            // if (!u.followed) {
+                                            //     usersAPI.followUser(u.id)
+                                            //       .then((data) => {
+                                            //           if (data.resultCode === 0) {
+                                            //               props.toggleFriend(u.id);
+                                            //               props.setFriendList(props.users.filter((u: any) => u.followed));
+                                            //               props.followingProgress(false, u.id);
+                                            //           }
+                                            //       })
+                                            // } else if (u.followed) {
+                                            //     usersAPI.unfollowUser(u.id)
+                                            //       .then((data) => {
+                                            //           if (data.resultCode === 0) {
+                                            //               props.toggleFriend(u.id)
+                                            //               props.setFriendList(props.users.filter((u: any) => u.followed))
+                                            //               props.followingProgress(false, u.id);
+                                            //           }
+                                            //       })
+                                            // }
+                                            props.followUnfollowUser(u.followed, u.id, props.users)
                                         }}>
                                     {u.followed ? 'Unfriend' : 'Add friend'}
                                 </button>

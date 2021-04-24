@@ -1,3 +1,5 @@
+import {profileAPI} from "../API/API";
+
 const SET_AUTH = 'SET_AUTH'
 
 const initialState = {
@@ -20,6 +22,17 @@ const authReducer = (state = initialState, action: { type: string, data: { id: n
     }
 }
 
+export default authReducer
+
+
 export const setAuth = (id: number, email: string, login: string) => ({type: SET_AUTH, data: {id, email, login}})
 
-export default authReducer
+export const getAuthMe = () => {
+    return (dispatch: (arg0: { type: string; data: { id: number; email: string; login: string; }; }) => void) => {
+        profileAPI.getAuthMe()
+          .then((data) => {
+              let {id, email, login} = data.data;
+              dispatch(setAuth(id, email, login));
+          })
+    }
+}
