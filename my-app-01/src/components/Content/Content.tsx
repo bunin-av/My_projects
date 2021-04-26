@@ -7,6 +7,7 @@ import React from "react";
 import MessagesContainer from "../Messages/MessagesContainer";
 import FindFriendsContainer from "../FindFriends/FindFriendsContainer";
 import ProfileContainer from "../Profile/ProfileContainer";
+import LoginPage from "../Login/LoginPage";
 
 const Content = () => {
     return (
@@ -14,6 +15,7 @@ const Content = () => {
           <Route path={'/profile/:userId?'} render={() => <ProfileContainer />}/>
           <Route path={'/messages'} render={() => <MessagesContainer />}/>
           <Route path={'/find_friends'} render={() => <FindFriendsContainer />}/>
+          <Route path={'/login'} render={() => <LoginPage />}/>
           <Route path={'/music'} component={Music}/>
           <Route path={'/news'} component={News}/>
           <Route path={'/settings'} component={Settings}/>

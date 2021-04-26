@@ -13,7 +13,6 @@ const Messages = (props: any) => {
     let dialogsElements =
       props.dialogsData.map((dialogs: { id: number; userName: string; avaUrl: string }) =>
         <Dialog userId={dialogs.id} userName={dialogs.userName} avaUrl={dialogs.avaUrl} key={Math.random()*100}/>)
-
     return (
       <div className={styles.messagesWrapper}>
           <div className={styles.searchBar}>Search Alex's messages</div>

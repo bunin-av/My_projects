@@ -31,8 +31,10 @@ export const getAuthMe = () => {
     return (dispatch: (arg0: { type: string; data: { id: number; email: string; login: string; }; }) => void) => {
         profileAPI.getAuthMe()
           .then((data) => {
-              let {id, email, login} = data.data;
-              dispatch(setAuth(id, email, login));
+              if (data.resultCode === 0) {
+                  let {id, email, login} = data.data;
+                  dispatch(setAuth(id, email, login));
+              }
           })
     }
 }
