@@ -6,26 +6,27 @@ import Preloader from "../common/Preloader/Preloader";
 
 
 class FindFriendsContainerAPI extends React.Component<any, any> {
+
     componentDidMount() {
-        // this.props.toggleIsFetching(true);
-        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-        //   .then((data) => {
-        //       this.props.toggleIsFetching(false);
-        //       this.props.setUsers(data.items);
-        //       this.props.setTotalCount(data.totalCount / 100);
-        //       this.props.setFriendList(this.props.users.filter((u: any) => u.followed))
-        //   });
+/*        this.props.toggleIsFetching(true);
+        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
+          .then((data) => {
+              this.props.toggleIsFetching(false);
+              this.props.setUsers(data.items);
+              this.props.setTotalCount(data.totalCount / 100);
+              this.props.setFriendList(this.props.users.filter((u: any) => u.followed))
+          });*/
         this.props.getUsers(this.props.currentPage, this.props.pageSize, false)
     }
 
     onPageChange = (pageNum: number) => {
-        // this.props.toggleIsFetching(true);
-        // this.props.changePage(pageNum);
-        // usersAPI.getUsers(pageNum, this.props.pageSize)
-        //   .then((data) => {
-        //       this.props.toggleIsFetching(false);
-        //       this.props.setUsers(data.items);
-        //   });
+/*        this.props.toggleIsFetching(true);
+        this.props.changePage(pageNum);
+        usersAPI.getUsers(pageNum, this.props.pageSize)
+          .then((data) => {
+              this.props.toggleIsFetching(false);
+              this.props.setUsers(data.items);
+          });*/
         this.props.getUsers(pageNum, this.props.pageSize, true);
     }
 
@@ -49,28 +50,28 @@ let mapState = (state: any) => {
     }
 }
 
-// let mapDispatch = (dispatch: any) => {
-//     return {
-//         setUsers: (users: any) => {
-//             dispatch(setUsersActionCreator(users));
-//         },
-//         toggleFriend: (id: number) => {
-//             dispatch(toggleFriendActionCreator(id));
-//         },
-//         changePage: (page: number) => {
-//             dispatch(changePageAC(page));
-//         },
-//         setTotalCount: (count: number) => {
-//             dispatch(setTotalCountAC(count));
-//         },
-//         toggleIsFetching: (isFetching: boolean) => {
-//             dispatch(togglePreloaderAC(isFetching));
-//         }
-//     }
-// }
+/*let mapDispatch = (dispatch: any) => {
+    return {
+        setUsers: (users: any) => {
+            dispatch(setUsersActionCreator(users));
+        },
+        toggleFriend: (id: number) => {
+            dispatch(toggleFriendActionCreator(id));
+        },
+        changePage: (page: number) => {
+            dispatch(changePageAC(page));
+        },
+        setTotalCount: (count: number) => {
+            dispatch(setTotalCountAC(count));
+        },
+        toggleIsFetching: (isFetching: boolean) => {
+            dispatch(togglePreloaderAC(isFetching));
+        }
+    }
+}*/
 
 // const FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
-const FindFriendsContainer = connect(mapState,
+export default connect(mapState,
   {
       // setUsers,
       toggleFriend,
@@ -83,4 +84,3 @@ const FindFriendsContainer = connect(mapState,
       followUnfollowUser,
   })(FindFriendsContainerAPI);
 
-export default FindFriendsContainer;

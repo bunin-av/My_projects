@@ -1,6 +1,6 @@
 .content{
     display: grid;
-    grid-template-rows: minmax(300px,auto) minmax(200px, auto)repeat(7,1fr);
+    grid-template-rows: minmax(300px,auto) minmax(200px, auto);
     grid-template-columns: 1fr 1fr 3fr 1fr;
     grid-column: 3/4;
 }

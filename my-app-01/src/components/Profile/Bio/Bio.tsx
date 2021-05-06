@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Bio.module.scss"
+import MyStatus from "./MyStatus/MyStatus";
 
 
 const Bio = (props: any) => {
@@ -27,6 +28,7 @@ const Bio = (props: any) => {
               <li>Instagram: {props.contacts?.instagram}</li>
               <li>YouTube: {props.contacts?.youtube}</li>
           </ul>
+          <MyStatus status={"Set status"}/>
       </div>
     )
 }

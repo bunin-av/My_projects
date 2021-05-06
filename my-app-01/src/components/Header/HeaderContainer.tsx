@@ -4,13 +4,15 @@ import {connect} from "react-redux";
 import {getAuthMe} from "../../redux/auth-reducer";
 
 
+
+
 class HeaderContainer extends React.Component<any, any> {
     componentDidMount() {
-        // profileAPI.getAuthMe()
-        //   .then((data) => {
-        //     let {id, email, login} = data.data;
-        //     this.props.setAuth(id, email, login);
-        // })
+/*        profileAPI.getAuthMe()
+          .then((data) => {
+            let {id, email, login} = data.data;
+            this.props.setAuth(id, email, login);
+        })*/
         this.props.getAuthMe();
     }
 

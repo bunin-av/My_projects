@@ -1,5 +1,7 @@
 import {usersAPI} from "../API/API";
 
+
+// actions
 const SET_USERS = 'SET_USERS';
 const TOGGLE_FRIEND = "TOGGLE_FRIEND";
 const CHANGE_PAGE = "CHANGE_PAGE";
@@ -8,6 +10,8 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SET_FRIEND_LIST = 'SET_FRIEND_LIST';
 const FOllOWING_IN_PROGRESS = 'FOllOWING_IN_PROGRESS';
 
+
+//reducer
 const initialState = {
     users: [],
     pageSize: 5,
@@ -54,7 +58,7 @@ const findFriendsReducer = (state: any = initialState, action: any) => {
         case SET_FRIEND_LIST:
             return {
                 ...state,
-                friendList: [...state.friendList, ...action.friends]
+                friendList: action.friends
             }
         case FOllOWING_IN_PROGRESS:
             return {
@@ -72,7 +76,7 @@ const findFriendsReducer = (state: any = initialState, action: any) => {
 
 export default findFriendsReducer;
 
-// action creators
+//AC
 export const setUsers = (users: any) => ({type: SET_USERS, users: users});
 export const toggleFriend = (id: number) => ({type: TOGGLE_FRIEND, id: id});
 export const changePage = (page: number) => ({type: CHANGE_PAGE, page});
@@ -102,14 +106,14 @@ export const getUsers = (currentPage: number, pageSize: number, isChangePage: bo
 }
 
 export const followUnfollowUser = (isUserFollowed: boolean, userId: number, users: any) => {
-    return (dispatch: (arg0: { type: string; isFetching?: boolean; userId?: number; id?: number; friends?: any; }) => void) => {
+    return (dispatch: (arg0: { type: string; isFetching?: boolean; userId?: number; id?: number; friends?: any; }) => void, getState: Function) => {
         dispatch(followingProgress(true, userId));
         if (!isUserFollowed) {
             usersAPI.followUser(userId)
               .then((data) => {
                   if (data.resultCode === 0) {
                       dispatch(toggleFriend(userId));
-                      dispatch(setFriendList(users.filter((u: any) => u.followed)));
+                      dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
                       dispatch(followingProgress(false, userId));
                   }
               })

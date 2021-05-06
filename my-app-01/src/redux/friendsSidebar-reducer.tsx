@@ -1,5 +1,12 @@
+type initialStateType = Array<userInfoType>
+type userInfoType = {
+    id: number
+    userName: string
+    avaUrl: string
+}
 
-let initialState = [
+
+let initialState: initialStateType = [
     {
         id: 1,
         userName: "Andrey",
@@ -17,7 +24,7 @@ let initialState = [
     },
 ];
 
-const friendsSidebarReducer = (state = initialState) =>{
+const friendsSidebarReducer = (state = initialState) => {
     return state;
 }
 

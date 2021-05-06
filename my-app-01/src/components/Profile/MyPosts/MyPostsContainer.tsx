@@ -23,10 +23,9 @@ let mapDispatch = (dispatch: any) => {
     }
 }
 
-const MyPostsContainer = connect(mapState,mapDispatch)(MyPosts)
+export default connect(mapState,mapDispatch)(MyPosts)
 
 
-export default MyPostsContainer;
 
 
 

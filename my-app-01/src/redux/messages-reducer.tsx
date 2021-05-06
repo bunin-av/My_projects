@@ -1,7 +1,27 @@
-const NEW_MESSAGE_UPDATE = "NEW_MESSAGE_UPDATE";
-const SEND_MESSAGE = "SEND_MESSAGE";
+const NEW_MESSAGE_UPDATE: string = "NEW_MESSAGE_UPDATE";
+const SEND_MESSAGE: string = "SEND_MESSAGE";
 
-let initialState = {
+//types
+type initialStateType = {
+    messagesData: messagesDataType
+    dialogsData: dialogsDataType
+    newMessageText: string
+}
+type messagesDataType = Array<messageType>
+type messageType = {
+    id: number
+    text: string
+}
+type dialogsDataType = Array<dialogType>
+type dialogType = {
+    id: number
+    userName: string
+    avaUrl: string
+}
+
+
+// reducer
+let initialState: initialStateType = {
     messagesData: [
         {id: 1, text: "Hi, man"},
         {id: 2, text: "Hi, yo"},
@@ -36,17 +56,25 @@ const messagesReducer = (state = initialState, action: { type: string; newText: 
     switch (action.type) {
         case SEND_MESSAGE: {
             let newMessage = {id: 5, text: state.newMessageText};
-            return {...state, messagesData: [...state.messagesData, newMessage], newMessageText: ''};
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessage],
+                newMessageText: ''
+            };
         }
         case NEW_MESSAGE_UPDATE: {
-            return {...state, newMessageText: action.newText};
+            return {
+                ...state,
+                newMessageText: action.newText
+            };
         }
         default:
             return state;
     }
 }
 
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
-export const newMessageUpdateActionCreator = (text: string) => ({type: NEW_MESSAGE_UPDATE, newText: text});
+// AC
+export const sendMessage = () => ({type: SEND_MESSAGE});
+export const newMessageUpdate = (text: string) => ({type: NEW_MESSAGE_UPDATE, newText: text});
 
 export default messagesReducer

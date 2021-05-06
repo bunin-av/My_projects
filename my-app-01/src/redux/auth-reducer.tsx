@@ -1,6 +1,13 @@
 import {profileAPI} from "../API/API";
+import {Dispatch} from "redux";
 
-const SET_AUTH = 'SET_AUTH'
+const SET_AUTH: string = 'SET_AUTH'
+
+type actionType = {
+    type: string
+    data: { id: number, email: string, login: string }
+}
+
 
 const initialState = {
     id: null,
@@ -8,8 +15,7 @@ const initialState = {
     login: null,
     isAuth: false,
 }
-
-const authReducer = (state = initialState, action: { type: string, data: { id: number, email: string, login: string } }) => {
+const authReducer = (state = initialState, action: actionType) => {
     switch (action.type) {
         case SET_AUTH:
             return {
@@ -28,7 +34,7 @@ export default authReducer
 export const setAuth = (id: number, email: string, login: string) => ({type: SET_AUTH, data: {id, email, login}})
 
 export const getAuthMe = () => {
-    return (dispatch: (arg0: { type: string; data: { id: number; email: string; login: string; }; }) => void) => {
+    return (dispatch: Dispatch<actionType>) => {
         profileAPI.getAuthMe()
           .then((data) => {
               if (data.resultCode === 0) {

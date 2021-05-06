@@ -9,6 +9,7 @@ import FindFriendsContainer from "../FindFriends/FindFriendsContainer";
 import ProfileContainer from "../Profile/ProfileContainer";
 import LoginPage from "../Login/LoginPage";
 
+
 const Content = () => {
     return (
       <div className={styles.wrapper}>

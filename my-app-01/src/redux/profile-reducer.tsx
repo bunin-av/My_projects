@@ -1,21 +1,56 @@
 import {profileAPI} from "../API/API";
+import {Dispatch} from "redux";
 
-const ADD_POST = "ADD_POST";
-const NEW_POST_UPDATE = "NEW_POST_UPDATE";
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const ADD_POST: string = "ADD_POST";
+const NEW_POST_UPDATE: string = "NEW_POST_UPDATE";
+const SET_USER_PROFILE: string = 'SET_USER_PROFILE';
 
-let initialState = {
+// types
+type postsDataType = Array<postType>
+type postType = {
+    id: number
+    text: string
+    likes: number
+}
+type initialStateType = {
+    postsData: postsDataType
+    newPostText: string
+    userProfile: UserProfileType
+}
+export type UserProfileType = {
+    userId?: number
+    lookingForAJob?: boolean
+    lookingForAJobDescription?: string
+    fullName?: string
+    contacts?: {}
+    github?: string
+    vk?: string
+    facebook?: string
+    instagram?: string
+    twitter?: string
+    website?: string
+    youtube?: string
+    mainLink?: string
+    photos?: { small: string, large: string }
+}
+type actionType = {
+    type: string
+    newText: string
+    userProfile: UserProfileType
+}
+
+// reducer
+let initialState: initialStateType = {
     postsData: [
         {id: 1, text: "Hi, man!", likes: 10},
         {id: 2, text: "It's my first app!", likes: 12},
         {id: 3, text: "Yo guys", likes: 12},
     ],
     newPostText: '',
-    userProfile: null,
+    userProfile: {},
 };
 
-
-const profileReducer = (state = initialState, action: { type: string; newText: string; userProfile: any }) => {
+const profileReducer = (state = initialState, action: actionType) => {
     switch (action.type) {
         case ADD_POST: {
             let newPost: { id: number; text: string; likes: number } = {
@@ -41,15 +76,15 @@ export default profileReducer;
 //AC
 export const addPostActionCreator = () => ({type: ADD_POST});
 export const newPostUpdateActionCreator = (text: string) => ({type: NEW_POST_UPDATE, newText: text});
-export const setUserProfile = (userProfile: boolean) => ({type: SET_USER_PROFILE, userProfile})
+export const setUserProfile = (userProfile: UserProfileType) => ({type: SET_USER_PROFILE, userProfile})
 
 //thunks
 export const getUserProfile = (userId: number, authId: number) => {
-    return (dispatch: (arg0: { type: string; userProfile: boolean; }) => void) => {
+    return (dispatch: Dispatch<actionType>) => {
         if (!userId) userId = authId;
         profileAPI.getUserProfile(userId)
           .then((data) => {
-              dispatch(setUserProfile(data));
+              dispatch(setUserProfile(data) as actionType);
           });
     }
 }
