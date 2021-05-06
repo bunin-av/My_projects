@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b22d8f1d-2ca9-4ed2-97ea-bcf4b291dcaf" name="Default Changelist" comment="added more detailed css-module structure">
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Content/Content.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Content/Content.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Music/Music.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Music/Music.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/News/News.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/News/News.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Settings/Settings.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Settings/Settings.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/TopSidebar.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/TopSidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/exit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my-app-01/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/App.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Ava/Ava.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Ava/Ava.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/Bio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/Bio.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Wallpaper/Wallpaper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Wallpaper/Wallpaper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/reportWebVitals.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/setupTests.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qIibcsNWHm9EtwdcYz2JLs9YVA" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/my-app-01/src/components" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="ts.external.directory.path" value="D:\front-end\My_projects\my-app-01\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\front-end\My_projects\my-app-01\src\components" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Profile\Bio" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Profile\Ava" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Profile\Wallpaper" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Profile\MyPosts\Post" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\front-end\My_projects\my-app-01\src\components" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Profile\Wallpaper" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Profile" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Navbar" />
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Header" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/my-app-01/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b22d8f1d-2ca9-4ed2-97ea-bcf4b291dcaf" name="Default Changelist" comment="" />
+      <created>1616773578280</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616773578280</updated>
+      <workItem from="1616773579465" duration="962000" />
+      <workItem from="1616778864776" duration="820000" />
+      <workItem from="1616779712530" duration="54000" />
+      <workItem from="1616779783493" duration="10441000" />
+      <workItem from="1616824514199" duration="23730000" />
+      <workItem from="1616879459778" duration="833000" />
+      <workItem from="1617044342209" duration="6221000" />
+      <workItem from="1617123453102" duration="823000" />
+      <workItem from="1617124378214" duration="1034000" />
+      <workItem from="1617125825782" duration="9148000" />
+    </task>
+    <task id="LOCAL-00001" summary="added css-modules">
+      <created>1616790310279</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616790310279</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added more detailed css-module structure">
+      <created>1616850782189</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616850782189</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added css-modules" />
+    <MESSAGE value="added more detailed css-module structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="added more detailed css-module structure" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="537" y="75" key="#CSS" timestamp="1616790385023">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="537" y="75" key="#CSS/0.0.1536.824@0.0.1536.824" timestamp="1616790385023" />
+    <state x="516" y="36" key="#JavaScript" timestamp="1617131491120">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="516" y="36" key="#JavaScript/0.0.1536.824@0.0.1536.824" timestamp="1617131491120" />
+    <state x="537" y="75" key="#SCSS" timestamp="1617046035241">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="537" y="75" key="#SCSS/0.0.1536.824@0.0.1536.824" timestamp="1617046035241" />
+    <state x="488" y="36" key="#TypeScript" timestamp="1617131498198">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="488" y="36" key="#TypeScript/0.0.1536.824@0.0.1536.824" timestamp="1617131498198" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1617126751242">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1617126751242" />
+    <state x="436" y="167" width="663" height="657" key="EditFileWatcherDialog" timestamp="1616826334876">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="436" y="167" width="663" height="657" key="EditFileWatcherDialog/0.0.1536.824@0.0.1536.824" timestamp="1616826334876" />
+    <state x="330" y="153" key="FileChooserDialogImpl" timestamp="1616825075948">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="330" y="153" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1616825075948" />
+    <state width="1515" height="204" key="GridCell.Tab.0.bottom" timestamp="1617138243570">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617138243570" />
+    <state width="1515" height="204" key="GridCell.Tab.0.center" timestamp="1617138243570">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617138243570" />
+    <state width="1515" height="204" key="GridCell.Tab.0.left" timestamp="1617138243570">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617138243570" />
+    <state width="1515" height="204" key="GridCell.Tab.0.right" timestamp="1617138243570">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617138243570" />
+    <state x="59" y="57" width="979" height="709" key="SettingsEditor" timestamp="1616868681908">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="59" y="57" width="979" height="709" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1616868681908" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1616790330782">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1616790330782" />
+    <state x="197" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1617132192508">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="197" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1617132192508" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1616873022805">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1616873022805" />
+  </component>
+</project>
