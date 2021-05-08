@@ -3,9 +3,19 @@ import React from "react";
 import userPhoto from "../../../assets/images/userS1.png";
 
 
-const FriendsSidebar = (props: any) => {
+type PropsType = {
+    friendList: Array<FriendListType>
+}
+type FriendListType = {
+    id: number
+    name: string
+    photos: { small: string }
+}
+
+const FriendsSidebar = (props: PropsType) => {
+    debugger
     let friendElements = props.friendList
-      .map((friend: { photos: { small: string }; name: string; id: number }) =>
+      .map((friend) =>
         <FriendElement avaUrl={friend.photos.small} userName={friend.name} key={friend.id}/>)
 
     return (

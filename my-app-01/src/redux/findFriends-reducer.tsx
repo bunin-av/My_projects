@@ -105,7 +105,7 @@ export const getUsers = (currentPage: number, pageSize: number, isChangePage: bo
     }
 }
 
-export const followUnfollowUser = (isUserFollowed: boolean, userId: number, users: any) => {
+export const followUnfollowUser = (isUserFollowed: boolean, userId: number) => {
     return (dispatch: (arg0: { type: string; isFetching?: boolean; userId?: number; id?: number; friends?: any; }) => void, getState: Function) => {
         dispatch(followingProgress(true, userId));
         if (!isUserFollowed) {
@@ -122,7 +122,7 @@ export const followUnfollowUser = (isUserFollowed: boolean, userId: number, user
               .then((data) => {
                   if (data.resultCode === 0) {
                       dispatch(toggleFriend(userId));
-                      dispatch(setFriendList(users.filter((u: any) => u.followed)));
+                      dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
                       dispatch(followingProgress(false, userId));
                   }
               })

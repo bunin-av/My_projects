@@ -5,7 +5,7 @@ import React from "react";
 
 class FriendsSidebarContainer extends React.Component<any, any> {
     render() {
-        return <FriendsSidebar {...this.props} />
+        return <FriendsSidebar friendList={this.props.friendList} />
     }
 }
 

@@ -59,7 +59,7 @@ const FindFriends = (props: any) => {
                                             //           }
                                             //       })
                                             // }
-                                            props.followUnfollowUser(u.followed, u.id, props.users)
+                                            props.followUnfollowUser(u.followed, u.id)
                                         }}>
                                     {u.followed ? 'Unfriend' : 'Add friend'}
                                 </button>
