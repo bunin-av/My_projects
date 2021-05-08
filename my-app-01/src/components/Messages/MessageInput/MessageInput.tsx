@@ -7,7 +7,7 @@ import styles from "./MessageInput.module.scss"
 const MessageInput = (props: any) => {
     let onTextChange = (e: any) => {
         let text = e.target.value;
-        props.updateMessageText(text);
+        props.newMessageUpdate(text);
     }
 
     return (

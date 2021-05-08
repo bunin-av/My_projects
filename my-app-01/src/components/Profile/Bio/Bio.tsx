@@ -1,17 +1,11 @@
 import React from "react";
+import {Route} from "react-router-dom";
 import styles from "./Bio.module.scss"
 import MyStatus from "./MyStatus/MyStatus";
+import UserStatus from "./UserStatus/UserStatus";
 
 
 const Bio = (props: any) => {
-    // return <div className={styles.Bio}>
-    //     <h3>Alex B.</h3>
-    //     <ul>
-    //         <li>Date of Birth: 05.05.1990</li>
-    //         <li>City: Moscow</li>
-    //         <li>Web-site: none</li>
-    //     </ul>
-    // </div>
     return (
       <div className={styles.Bio}>
           <h3>{props.fullName}</h3>
@@ -28,7 +22,8 @@ const Bio = (props: any) => {
               <li>Instagram: {props.contacts?.instagram}</li>
               <li>YouTube: {props.contacts?.youtube}</li>
           </ul>
-          <MyStatus status={"Set status"}/>
+          <Route exact path={'/profile'} render={() => <MyStatus updateMyStatus={props.updateMyStatus} status={props.userStatus}/>}/>
+          <Route exact path={`/profile/${props.userId}`} render={() => <UserStatus status={props.userStatus}/>}/>
       </div>
     )
 }

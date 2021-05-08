@@ -11,7 +11,10 @@ const Profile = (props:any) => {
       <div className={styles.content}>
           <Wallpaper />
           <Ava {...props.userProfile}/>
-          <Bio {...props.userProfile}/>
+          <Bio {...props.userProfile}
+               userStatus={props.userStatus}
+               updateMyStatus={props.updateMyStatus}
+          />
           <MyPostsContainer />
       </div>
     )

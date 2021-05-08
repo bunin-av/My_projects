@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosInterceptorManager, AxiosPromise, AxiosRequestConfig, AxiosResponse} from "axios";
 
 const axiosInstance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -22,6 +22,7 @@ export const usersAPI = {
     },
 }
 
+
 export const profileAPI = {
     getUserProfile(userId: number) {
         return axiosInstance.get(`profile/` + userId)
@@ -31,6 +32,12 @@ export const profileAPI = {
         return axiosInstance.get(`auth/me`)
           .then(response => response.data)
     },
+    getUserStatus(userId: number) {
+        return axiosInstance.get<string>(`profile/status/${userId}`)
+          .then(response => response.data)
+    },
+    updateMyStatus(status: string) {
+        return axiosInstance.put(`profile/status`, {status})
+          .then(response => response.data)
+    },
 }
-
-

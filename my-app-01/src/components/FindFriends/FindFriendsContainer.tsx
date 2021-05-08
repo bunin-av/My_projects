@@ -74,11 +74,11 @@ let mapState = (state: any) => {
 export default connect(mapState,
   {
       // setUsers,
-      toggleFriend,
       // changePage,
       // setTotalCount,
       // toggleIsFetching,
       // setFriendList,
+      toggleFriend,
       followingProgress,
       getUsers,
       followUnfollowUser,

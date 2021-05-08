@@ -1,6 +1,6 @@
 import React from "react";
 import Profile from "./Profile";
-import {getUserProfile, UserProfileType} from "../../redux/profile-reducer";
+import {getUserProfile, getUserStatus, updateMyStatus, UserProfileType} from "../../redux/profile-reducer";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import withAuthRedirect from "../HOC/AuthRedirect";
@@ -15,6 +15,7 @@ type MSTPType = {
     }
     profilePage: {
         userProfile: UserProfileType
+        userStatus: string
     }
     authId: number
     isAuth: boolean
@@ -23,17 +24,16 @@ type MSTPType = {
 type MDTPType = any
 
 
-type PropsType = MSTPType & MDTPType
-  & RouteComponentProps<{ userId?: string }>
+type PropsType = MSTPType & MDTPType & RouteComponentProps<{ userId?: string }>
 
 
 class ProfileContainer extends React.Component<PropsType, {}> {
     componentDidMount() {
         this.props.getUserProfile(this.props.match.params.userId, this.props.authId)
+        this.props.getUserStatus(this.props.match.params.userId || this.props.authId)
     }
 
     render() {
-        debugger
         return <Profile {...this.props} />
     }
 }
@@ -42,10 +42,11 @@ let mapState = (state: MSTPType) => ({
     userProfile: state.profilePage.userProfile,
     authId: state.auth.id,
     isAuth: state.auth.isAuth,
+    userStatus: state.profilePage.userStatus,
 })
 
 export default compose<React.ComponentType>(
-  connect(mapState, {getUserProfile}),
+  connect(mapState, {getUserProfile, getUserStatus, updateMyStatus}),
   withAuthRedirect,
   withRouter,
 )(ProfileContainer)
