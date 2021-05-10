@@ -1,4 +1,5 @@
-import axios, {AxiosInterceptorManager, AxiosPromise, AxiosRequestConfig, AxiosResponse} from "axios";
+import axios from "axios";
+import {LogInDataType} from "../redux/auth-reducer";
 
 const axiosInstance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -28,10 +29,7 @@ export const profileAPI = {
         return axiosInstance.get(`profile/` + userId)
           .then(response => response.data)
     },
-    getAuthMe() {
-        return axiosInstance.get(`auth/me`)
-          .then(response => response.data)
-    },
+
     getUserStatus(userId: number) {
         return axiosInstance.get<string>(`profile/status/${userId}`)
           .then(response => response.data)
@@ -40,4 +38,22 @@ export const profileAPI = {
         return axiosInstance.put(`profile/status`, {status})
           .then(response => response.data)
     },
+}
+
+
+export const authAPI = {
+    getAuthMe() {
+        return axiosInstance.get(`auth/me`)
+          .then(response => response.data)
+    },
+    logIn(logInData: LogInDataType) {
+        return axiosInstance.post(`auth/login`, logInData)
+          .then(response => {
+             return  response.data
+          })
+    },
+    logOut() {
+        return axiosInstance.delete(`auth/login`)
+          .then(response => response.data)
+    }
 }

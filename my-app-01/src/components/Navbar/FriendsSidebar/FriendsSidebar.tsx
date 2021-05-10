@@ -13,7 +13,6 @@ type FriendListType = {
 }
 
 const FriendsSidebar = (props: PropsType) => {
-    debugger
     let friendElements = props.friendList
       .map((friend) =>
         <FriendElement avaUrl={friend.photos.small} userName={friend.name} key={friend.id}/>)

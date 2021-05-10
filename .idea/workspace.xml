@@ -20,46 +20,102 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b22d8f1d-2ca9-4ed2-97ea-bcf4b291dcaf" name="Default Changelist" comment="added more detailed css-module structure">
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Content/Content.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Content/Content.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Music/Music.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Music/Music.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/News/News.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/News/News.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Settings/Settings.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/Settings/Settings.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/TopSidebar.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/TopSidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my-app-01/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/App.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Ava/Ava.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Ava/Ava.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/Bio.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/Bio.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/Post/Post.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Wallpaper/Wallpaper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/components/Profile/Wallpaper/Wallpaper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/reportWebVitals.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app-01/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/my-app-01/src/setupTests.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/my-app-01.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.idea/watcherTasks.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.yarn/releases/yarn-berry.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/.yarnrc.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/API/API.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/assets/images/exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/assets/images/preloader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/assets/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/assets/images/userS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/assets/images/userS1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Content/Content.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Content/Content.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/FindFriends/FindFriends-old.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/FindFriends/FindFriends.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/FindFriends/FindFriends.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/FindFriends/FindFriendsContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/HOC/AuthRedirect.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Header/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Header/HeaderContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Login/LoginPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/Dialog/Dialog.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/Dialog/Dialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/Message/Message.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/MessageInput/MessageInput.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/MessageInput/MessageInput.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/Messages.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Messages/MessagesContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Music/Music.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Music/Music.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/FriendsSidebar/FriendsSidebar.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/FriendsSidebar/FriendsSidebar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/FriendsSidebar/FriendsSidebarContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Navbar/Navbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/News/News.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/News/News.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Ava/Ava.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Ava/Ava.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/Bio.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/Bio.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/MyStatus/MyStatus.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Bio/UserStatus/UserStatus.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/MyPostsContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/PostInput/PostInput.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/PostsFeed/Post/Post.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/PostsFeed/Post/Post.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/MyPosts/PostsFeed/PostsFeed.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Profile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/ProfileContainer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Wallpaper/Wallpaper.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Profile/Wallpaper/Wallpaper.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Settings/Settings.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/Settings/Settings.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/TopSidebar.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/TopSidebar/TopSidebar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/common/Preloader/Preloader.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/components/common/Preloader/Preloader.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/react-app-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/redux/auth-reducer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/redux/findFriends-reducer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/redux/friendsSidebar-reducer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/redux/messages-reducer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/redux/profile-reducer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/redux/redux-store.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/redux/store.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/reportWebVitals.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/src/setupTests.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app-01/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +204,8 @@
       <workItem from="1617123453102" duration="823000" />
       <workItem from="1617124378214" duration="1034000" />
       <workItem from="1617125825782" duration="9148000" />
+      <workItem from="1620593257232" duration="38000" />
+      <workItem from="1620593318419" duration="98000" />
     </task>
     <task id="LOCAL-00001" summary="added css-modules">
       <created>1616790310279</created>
