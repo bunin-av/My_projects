@@ -5,7 +5,6 @@
     //display: grid;
     //grid-template: minmax(50px, auto) repeat(5, 1fr)/ 1fr 60px;
     padding: 0 20px;
-    border: 2px dotted black;
 
     h3 {
         font-weight: normal;
@@ -13,7 +12,6 @@
 
     .MyPosts__inputItems {
         //grid-column: span 4;
-        border: 2px dotted black;
 
         .MyPosts__input {
             //убрать обводку при клике
@@ -22,14 +20,22 @@
             height: 50px;
         }
 
-        .MyPosts__sendButton {
-            display: block;
-            //margin-left: auto;
-            grid-column: 3;
-            //align-self: center;
-            outline: none;
-        }
+
 
     }
 
+}
+
+.MyPosts__sendButton {
+    display: block;
+    //margin-left: auto;
+    grid-column: 3;
+    //align-self: center;
+    outline: none;
+    border-radius: 10%;
+    background: #48b9f3;
+    border: none;
+    margin: 10px 0 40px;
+    height: 30px;
+    width: 60px;
 }

@@ -16,14 +16,25 @@ import {LogInDataType} from "../../../redux/auth-reducer";
 //     return errors;
 // }
 
+type AuthType = {
+    captcha: boolean
+    email: string
+    id: number
+    isAuth: boolean
+    login: string
+    password: string | null
+    rememberMe: boolean
+}
+type LoginFromPropsType = {
+    auth: AuthType
+    doLogIn: (logInData: LogInDataType) => void
+}
 
-
-const LoginForm = (props:any) => {
+const LoginForm = (props: LoginFromPropsType) => {
     const submit = (values: LogInDataType, {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }) => {
         props.doLogIn(values)
         setSubmitting(false);
     }
-    console.log(props)
     return (
       <Formik
         initialValues={{email: '', password: '', rememberMe: false, captcha: false}}

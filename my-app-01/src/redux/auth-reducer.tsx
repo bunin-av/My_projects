@@ -81,10 +81,9 @@ export const getAuthMe = () => {
 }
 
 export const doLogIn = (logInData: LogInDataType) => {
-    return (dispatch: any) => {
+    return (dispatch: (data: {}) => void) => {
         authAPI.logIn(logInData)
           .then((data) => {
-              debugger
               if (data.resultCode === 0) {
                   dispatch(setLogIn(data.data))
                   getAuthMe()

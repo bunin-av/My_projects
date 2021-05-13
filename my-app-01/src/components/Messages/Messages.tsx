@@ -3,7 +3,7 @@ import Dialog from "./Dialog/Dialog";
 import MessageInput from "./MessageInput/MessageInput";
 import styles from './Messages.module.scss'
 import Message from "./Message/Message";
-import {newMessageUpdate} from "../../redux/messages-reducer";
+
 
 
 
@@ -22,10 +22,7 @@ const Messages = (props: any) => {
           </div>
           <div className={styles.messages}>
               {messagesElements}
-              <MessageInput newMessageText={props.newMessageText}
-                            sendMessage={props.sendMessage}
-                            newMessageUpdate={props.newMessageUpdate}/>
-
+              <MessageInput sendMessage={props.sendMessage}/>
           </div>
 
       </div>

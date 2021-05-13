@@ -1,6 +1,7 @@
 import {profileAPI} from "../API/API";
 import {Dispatch} from "redux";
 
+
 //types of actions
 const ADD_POST: string = "ADD_POST";
 const NEW_POST_UPDATE: string = "NEW_POST_UPDATE";
@@ -8,15 +9,15 @@ const SET_USER_PROFILE: string = 'SET_USER_PROFILE';
 const SET_STATUS: string = 'SET_STATUS';
 
 // types
-type postsDataType = Array<postType>
-type postType = {
+export type postsDataType = Array<postType>
+export type postType = {
     id: number
     text: string
     likes: number
 }
-type initialStateType = {
+export type initialStateType = {
     postsData: postsDataType
-    newPostText: string
+    // newPostText: string
     userProfile: UserProfileType
     userStatus: string
 }
@@ -36,7 +37,7 @@ export type UserProfileType = {
     mainLink?: string
     photos?: { small: string, large: string }
 }
-type actionType = {
+export type actionType = {
     type: string
     newText: string
     userProfile: UserProfileType
@@ -50,7 +51,7 @@ let initialState: initialStateType = {
         {id: 2, text: "It's my first app!", likes: 12},
         {id: 3, text: "Yo guys", likes: 12},
     ],
-    newPostText: '',
+    // newPostText: '',
     userProfile: {},
     userStatus: '',
 };
@@ -58,16 +59,18 @@ let initialState: initialStateType = {
 const profileReducer = (state = initialState, action: actionType) => {
     switch (action.type) {
         case ADD_POST: {
+            // let allPosts = store.getState().profilePage.postsData
             let newPost: { id: number; text: string; likes: number } = {
+                // id: getState().profilePage.postsData[store.getState().profilePage.postsData.length-1].id+1,
                 id: 5,
-                text: state.newPostText,
+                text: action.newText,
                 likes: 0
             };
-            return {...state, postsData: [...state.postsData, newPost], newPostText: ''};
+            return {...state, postsData: [newPost, ...state.postsData]};
         }
-        case NEW_POST_UPDATE: {
-            return {...state, newPostText: action.newText};
-        }
+        // case NEW_POST_UPDATE: {
+        //     return {...state, newPostText: action.newText};
+        // }
         case SET_USER_PROFILE: {
             return {...state, userProfile: action.userProfile}
         }
@@ -82,8 +85,8 @@ const profileReducer = (state = initialState, action: actionType) => {
 export default profileReducer;
 
 //AC
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const newPostUpdateActionCreator = (text: string) => ({type: NEW_POST_UPDATE, newText: text});
+export const addPostActionCreator = (newText: string) => ({type: ADD_POST, newText});
+// export const newPostUpdateActionCreator = (text: string) => ({type: NEW_POST_UPDATE, newText: text});
 export const setUserProfile = (userProfile: UserProfileType) => ({type: SET_USER_PROFILE, userProfile})
 export const setUserStatus = (userStatus: string) => ({type: SET_STATUS, status: userStatus})
 

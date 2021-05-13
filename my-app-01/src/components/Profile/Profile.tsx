@@ -6,6 +6,7 @@ import Bio from "./Bio/Bio";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 
+
 const Profile = (props:any) => {
     return (
       <div className={styles.content}>

@@ -1,5 +1,5 @@
 import Messages from "./Messages";
-import {newMessageUpdate, sendMessage} from "../../redux/messages-reducer";
+import {sendMessage} from "../../redux/messages-reducer";
 import {connect} from "react-redux";
 import withAuthRedirect from "../HOC/AuthRedirect";
 import {compose} from "redux";
@@ -10,7 +10,6 @@ let mapStateToProps = (state: { messagesPage: { dialogsData: any; messagesData: 
     return {
         dialogsData: state.messagesPage.dialogsData,
         messagesData: state.messagesPage.messagesData,
-        newMessageText: state.messagesPage.newMessageText,
         isAuth: state.auth.isAuth,
     }
 }
@@ -29,8 +28,8 @@ let mapStateToProps = (state: { messagesPage: { dialogsData: any; messagesData: 
 }*/
 
 export default compose<React.ComponentType>(
-  connect(mapStateToProps, {sendMessage, newMessageUpdate}),
-  withAuthRedirect
+  connect(mapStateToProps, {sendMessage}),
+  // withAuthRedirect
 )(Messages)
 
 /*

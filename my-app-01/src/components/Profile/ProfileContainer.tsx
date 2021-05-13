@@ -47,12 +47,6 @@ let mapState = (state: MSTPType) => ({
 
 export default compose<React.ComponentType>(
   connect(mapState, {getUserProfile, getUserStatus, updateMyStatus}),
-  withAuthRedirect,
+  // withAuthRedirect,
   withRouter,
 )(ProfileContainer)
-
-// let WithRouterProfileContainer = withRouter(ProfileContainer)
-// let AuthRedirectComponent = withAuthRedirect(WithRouterProfileContainer)
-//
-// export default connect(mapState, {getUserProfile})(AuthRedirectComponent);
-

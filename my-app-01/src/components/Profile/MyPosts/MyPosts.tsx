@@ -8,10 +8,8 @@ const MyPosts = (props: any) => {
     return (
       <div className={styles.MyPosts}>
           <h3>My posts</h3>
-          <PostInput newPostText={props.newPostText}
-                     addNewPost={props.addNewPost}
-                     updateNewPost={props.updateNewPost}/>
-           <PostsFeed postsData={props.postsData}/>
+          <PostInput addNewPost={props.addNewPost}/>
+          <PostsFeed postsData={props.postsData}/>
       </div>
     )
 }

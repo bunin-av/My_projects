@@ -2,6 +2,10 @@ textarea {
     outline: none;
 }
 
-button {
+.button {
     outline: none;
+    height: 50px;
+    width: 50px;
+    background: 60%/60% no-repeat;
+    border-radius: 50%;
 }

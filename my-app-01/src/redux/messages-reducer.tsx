@@ -1,11 +1,11 @@
-const NEW_MESSAGE_UPDATE: string = "NEW_MESSAGE_UPDATE";
+// const NEW_MESSAGE_UPDATE: string = "NEW_MESSAGE_UPDATE";
 const SEND_MESSAGE: string = "SEND_MESSAGE";
 
 //types
 type initialStateType = {
     messagesData: messagesDataType
     dialogsData: dialogsDataType
-    newMessageText: string
+    // newMessageText: string
 }
 type messagesDataType = Array<messageType>
 type messageType = {
@@ -23,9 +23,9 @@ type dialogType = {
 // reducer
 let initialState: initialStateType = {
     messagesData: [
-        {id: 1, text: "Hi, man"},
-        {id: 2, text: "Hi, yo"},
-        {id: 3, text: "Hi, ook"},
+        {id: 1, text: "Hi man"},
+        {id: 2, text: "Whazzup dude"},
+        {id: 3, text: "I'm fine"},
     ],
     dialogsData: [
         {
@@ -49,32 +49,32 @@ let initialState: initialStateType = {
             avaUrl: "https://videozhara.com/storage/xhp6gfqVvUbp0DYMxBic3rlDvh85C4xYAJZNX3vI.jpeg"
         },
     ],
-    newMessageText: ''
+    // newMessageText: ''
 };
 
-const messagesReducer = (state = initialState, action: { type: string; newText: string; }) => {
+const messagesReducer = (state = initialState, action: { type: string; messageText: string; }) => {
     switch (action.type) {
         case SEND_MESSAGE: {
-            let newMessage = {id: 5, text: state.newMessageText};
+            let newMessage = {id: 5, text: action.messageText};
             return {
                 ...state,
                 messagesData: [...state.messagesData, newMessage],
-                newMessageText: ''
+                // newMessageText: ''
             };
         }
-        case NEW_MESSAGE_UPDATE: {
-            return {
-                ...state,
-                newMessageText: action.newText
-            };
-        }
+        // case NEW_MESSAGE_UPDATE: {
+        //     return {
+        //         ...state,
+        //         newMessageText: action.newText
+        //     };
+        // }
         default:
             return state;
     }
 }
 
 // AC
-export const sendMessage = () => ({type: SEND_MESSAGE});
-export const newMessageUpdate = (text: string) => ({type: NEW_MESSAGE_UPDATE, newText: text});
+export const sendMessage = (messageText: string) => ({type: SEND_MESSAGE, messageText});
+// export const newMessageUpdate = (text: string) => ({type: NEW_MESSAGE_UPDATE, newText: text});
 
 export default messagesReducer
