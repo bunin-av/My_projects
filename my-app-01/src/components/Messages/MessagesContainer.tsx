@@ -29,7 +29,7 @@ let mapStateToProps = (state: { messagesPage: { dialogsData: any; messagesData: 
 
 export default compose<React.ComponentType>(
   connect(mapStateToProps, {sendMessage}),
-  // withAuthRedirect
+  withAuthRedirect
 )(Messages)
 
 /*

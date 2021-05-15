@@ -2,12 +2,17 @@ import React from "react";
 import LoginForm from "./LoginForm/LoginFrom";
 import {connect} from "react-redux";
 import {AuthStateType, doLogIn} from "../../redux/auth-reducer";
-import style from './Login.module.scss'
+import styles from './Login.module.scss'
+import { Redirect } from "react-router-dom";
 
 
 const LoginPage = (props: any) => {
+    if (props.auth.isAuth) {
+        return <Redirect to={`/profile`}/>
+    }
+
     return (
-      <div className={style.wrapper}>
+      <div className={styles.wrapper}>
           <h1>LOGIN</h1>
           <LoginForm {...props} />
       </div>

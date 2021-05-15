@@ -1,11 +1,28 @@
-textarea {
-    outline: none;
-}
 
 .button {
     outline: none;
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     background: 60%/60% no-repeat;
     border-radius: 50%;
+    margin: 10px 0 0 5px;
+
 }
+
+.error {
+    color: crimson;
+    height: 20px;
+    margin: 5px 0;
+}
+
+.input_wrapper {
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+
+
+    input {
+        height: 30px;
+    }
+}
+

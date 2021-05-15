@@ -3,30 +3,17 @@ import {followingProgress, followUnfollowUser, getUsers, toggleFriend,} from "..
 import React from "react";
 import FindFriends from "./FindFriends";
 import Preloader from "../common/Preloader/Preloader";
+import {compose} from "redux";
+import withAuthRedirect from "../HOC/AuthRedirect";
 
 
 class FindFriendsContainerAPI extends React.Component<any, any> {
 
     componentDidMount() {
-/*        this.props.toggleIsFetching(true);
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-          .then((data) => {
-              this.props.toggleIsFetching(false);
-              this.props.setUsers(data.items);
-              this.props.setTotalCount(data.totalCount / 100);
-              this.props.setFriendList(this.props.users.filter((u: any) => u.followed))
-          });*/
         this.props.getUsers(this.props.currentPage, this.props.pageSize, false)
     }
 
     onPageChange = (pageNum: number) => {
-/*        this.props.toggleIsFetching(true);
-        this.props.changePage(pageNum);
-        usersAPI.getUsers(pageNum, this.props.pageSize)
-          .then((data) => {
-              this.props.toggleIsFetching(false);
-              this.props.setUsers(data.items);
-          });*/
         this.props.getUsers(pageNum, this.props.pageSize, true);
     }
 
@@ -71,16 +58,15 @@ let mapState = (state: any) => {
 }*/
 
 // const FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
-export default connect(mapState,
-  {
-      // setUsers,
-      // changePage,
-      // setTotalCount,
-      // toggleIsFetching,
-      // setFriendList,
-      toggleFriend,
-      followingProgress,
-      getUsers,
-      followUnfollowUser,
-  })(FindFriendsContainerAPI);
+export default compose<React.ComponentType>(
+  connect(mapState,
+    {
+        toggleFriend,
+        followingProgress,
+        getUsers,
+        followUnfollowUser,
+    }),
+  withAuthRedirect
+)(FindFriendsContainerAPI)
+
 

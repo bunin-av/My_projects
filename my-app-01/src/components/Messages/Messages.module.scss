@@ -12,9 +12,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        //&:nth-child(2n){
-        //    color: gold;
-        //}
+        padding: 20px;
+        justify-content: flex-end;
+        .message_input {
+            //justify-self: flex-end;
+        }
     }
 
     .searchBar {
@@ -24,6 +26,7 @@
         padding-left: 130px;
         color: white;
     }
+
     .searchButton {
         //grid-column: 1;
     }

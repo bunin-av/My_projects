@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {getAuthMe} from "../../redux/auth-reducer";
+import {doLogOut, getAuthMe} from "../../redux/auth-reducer";
 
 
 
@@ -28,4 +28,4 @@ const mapState = (state: { auth: { login: string, isAuth: boolean } }) => {
     }
 }
 
-export default connect(mapState, {getAuthMe})(HeaderContainer)
+export default connect(mapState, {getAuthMe, doLogOut})(HeaderContainer)

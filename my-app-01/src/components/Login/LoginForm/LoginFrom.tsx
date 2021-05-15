@@ -1,8 +1,8 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import React from "react";
 import {LogInDataType} from "../../../redux/auth-reducer";
-
-
+import {emailValidation, passwordValidation} from "../../../assets/validations/validations";
+import styles from '../Login.module.scss'
 
 // const validate = (values: { email: string; }) => {
 //     const errors = {email: ''};
@@ -35,28 +35,38 @@ const LoginForm = (props: LoginFromPropsType) => {
         props.doLogIn(values)
         setSubmitting(false);
     }
+    let error
     return (
       <Formik
         initialValues={{email: '', password: '', rememberMe: false, captcha: false}}
         validate={() => ({})}
         onSubmit={submit}
       >
-          {({isSubmitting}) => (
+          {({isSubmitting, errors, touched}) => (
             <Form>
-                <div>
-                    <Field type="email" name="email" placeholder="Email address"/>
-                    <ErrorMessage name="email" component="div"/>
+                <div className={styles.field_wrapper}>
+                    <Field type="email"
+                           name="email"
+                           placeholder="Email address"
+                           validate={emailValidation}
+                           className={`${styles.input} ${(errors.email)? styles.errorInput : ''}`}/>
+                    {touched.email && <ErrorMessage name="email" component="div" className={styles.errorMessage}/>}
                 </div>
-                <div>
-                    <Field type="password" name="password" placeholder="Password"/>
-                    <ErrorMessage name="password" component="div"/>
+                <div className={styles.field_wrapper}>
+                    <Field type="password"
+                           name="password"
+                           placeholder="Password"
+                           validate={passwordValidation}
+                           className={`${styles.input} ${(errors.password)? styles.errorInput : ''}`}/>
+                    {touched.password && <ErrorMessage name="password" component="div" className={styles.errorMessage}/>}
                 </div>
                 <label>
                     <Field type="checkbox" name="rememberMe"/>
                     Remember me
                 </label>
                 <div>
-                    <button type="submit" disabled={isSubmitting}>
+                    {(errors.email && errors.password) ? error = true : error = false}
+                    <button type="submit" className={styles.button} disabled={error || isSubmitting}>
                         Log In
                     </button>
                 </div>

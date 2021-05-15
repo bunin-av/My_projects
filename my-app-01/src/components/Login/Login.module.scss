@@ -2,3 +2,38 @@
     color: white;
     margin-left: 40px;
 }
+
+.field_wrapper {
+    display: flex;
+    color: crimson;
+    outline: none;
+}
+
+.input {
+    border: 1px solid #365d98;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.errorInput {
+    border: 1px solid crimson;
+    //outline: 1px solid crimson;
+}
+
+.errorMessage {
+    margin: 0 10px;
+    padding: 5px;
+}
+
+.button {
+    padding: 5px 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    //font-family: 'Segoe UI';
+    width: 200px
+}

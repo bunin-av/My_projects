@@ -1,18 +1,19 @@
 import React from "react";
 import styles from "../MyPosts.module.scss";
 import {Field, Form, Formik} from "formik";
+import {preventEmptyMessage} from "../../../../assets/validations/validations";
 
 type PostInputType = {
     addNewPost: (text: string) => void
 }
 
 const PostInput = (props: PostInputType) => {
-    // const submit = () => props.addNewPost
     const submit = (values: { postText: string }, {setSubmitting, resetForm}: { setSubmitting: (isSubmitting: boolean) => void, resetForm: () => void }) => {
         props.addNewPost(values.postText)
         resetForm()
         setSubmitting(false);
     }
+    // let error
     return (
       <Formik initialValues={{postText: ''}}
               validate={() => ({})}
@@ -21,9 +22,10 @@ const PostInput = (props: PostInputType) => {
           {({isSubmitting}) => (
             <Form>
                 <div>
-                    <Field type="postText" name="postText" placeholder="What's new?"/>
+                    <Field type="postText" name="postText" placeholder="What's new?" validate={preventEmptyMessage}/>
                 </div>
                 <div>
+                    {/*{(errors.postText) ? error = true : error = false}*/}
                     <button type="submit" disabled={isSubmitting} className={styles.MyPosts__sendButton}>
                         Post
                     </button>

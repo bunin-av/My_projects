@@ -5,15 +5,13 @@ import styles from './Messages.module.scss'
 import Message from "./Message/Message";
 
 
-
-
 const Messages = (props: any) => {
     let messagesElements =
       props.messagesData.map((message: { text: string }) =>
-        <Message messageText={message.text} key={Math.random()*100} />)
+        <Message messageText={message.text} key={Math.random() * 100}/>)
     let dialogsElements =
       props.dialogsData.map((dialogs: { id: number; userName: string; avaUrl: string }) =>
-        <Dialog userId={dialogs.id} userName={dialogs.userName} avaUrl={dialogs.avaUrl} key={Math.random()*100}/>)
+        <Dialog userId={dialogs.id} userName={dialogs.userName} avaUrl={dialogs.avaUrl} key={Math.random() * 100}/>)
     return (
       <div className={styles.messagesWrapper}>
           <div className={styles.searchBar}>Search Alex's messages</div>
@@ -22,7 +20,9 @@ const Messages = (props: any) => {
           </div>
           <div className={styles.messages}>
               {messagesElements}
-              <MessageInput sendMessage={props.sendMessage}/>
+              <div className={styles.message_input}>
+                  <MessageInput sendMessage={props.sendMessage}/>
+              </div>
           </div>
 
       </div>

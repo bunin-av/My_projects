@@ -44,7 +44,7 @@ const authReducer = (state = initialState, action: ActionType) => {
             return {
                 ...state,
                 ...action.authData,
-                isAuth: true,
+                // isAuth: true,
             }
         case LOG_IN:
             return {
@@ -63,18 +63,19 @@ const authReducer = (state = initialState, action: ActionType) => {
 
 export default authReducer
 
+//AC
+export const setAuth = (id: number, email: string, login: string, isAuth: boolean) => ({type: SET_AUTH, authData: {id, email, login, isAuth}})
 
-export const setAuth = (id: number, email: string, login: string) => ({type: SET_AUTH, authData: {id, email, login}})
-export const setLogIn = (LoginData: LogInDataType) => ({type: LOG_IN, loginData: LoginData})
-export const setLogOut = () => ({type: LOG_OUT})
 
+
+//thunks
 export const getAuthMe = () => {
     return (dispatch: Dispatch<any>) => {
         authAPI.getAuthMe()
           .then((data) => {
               if (data.resultCode === 0) {
                   let {id, email, login} = data.data;
-                  dispatch(setAuth(id, email, login));
+                  dispatch(setAuth(id, email, login, true));
               }
           })
     }
@@ -85,19 +86,18 @@ export const doLogIn = (logInData: LogInDataType) => {
         authAPI.logIn(logInData)
           .then((data) => {
               if (data.resultCode === 0) {
-                  dispatch(setLogIn(data.data))
-                  getAuthMe()
+                  dispatch(getAuthMe())
               }
           })
     }
 }
 
 export const doLogOut = () => {
-    return (dispatch: any) => {
+    return (dispatch: Dispatch<any>) => {
         authAPI.logOut()
           .then((data) => {
               if (data.resultCode === 0) {
-                  dispatch(setLogOut())
+                  dispatch(setAuth(0,'','',false))
               }
           })
     }

@@ -20,10 +20,7 @@ type MSTPType = {
     authId: number
     isAuth: boolean
 }
-
 type MDTPType = any
-
-
 type PropsType = MSTPType & MDTPType & RouteComponentProps<{ userId?: string }>
 
 
@@ -47,6 +44,6 @@ let mapState = (state: MSTPType) => ({
 
 export default compose<React.ComponentType>(
   connect(mapState, {getUserProfile, getUserStatus, updateMyStatus}),
-  // withAuthRedirect,
+  withAuthRedirect,
   withRouter,
 )(ProfileContainer)

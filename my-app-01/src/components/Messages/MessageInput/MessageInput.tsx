@@ -2,7 +2,7 @@ import {Field, Form, Formik} from "formik";
 import React from "react";
 import styles from "./MessageInput.module.scss"
 import sendImg from "./../../../assets/images/paper-plane.png"
-
+import {maxLength, requiredForm} from "../../../assets/validations/validations";
 
 
 // let sendMessageRef: any = React.createRef()
@@ -22,6 +22,8 @@ function MessageInput(props: MessageInputType) {
         resetForm()
         setSubmitting(false)
     }
+    const maxLength10 = maxLength(10)
+    const validate = (value: string) => (requiredForm(value) || maxLength10(value))
 
 
     return (
@@ -29,20 +31,28 @@ function MessageInput(props: MessageInputType) {
               validate={() => ({})}
               onSubmit={submit}
       >
-          {({isSubmitting}) =>(
+          {({isSubmitting,
+                // errors, touched, isValidating
+          }) => (
             <Form>
-                <div>
+                <div className={styles.input_wrapper}>
                     <Field type="messageText"
                            name="messageText"
                            placeholder="Write a message..."
+                           // validate={validate}
                     />
+                    <div>
+                        <button style={{backgroundImage: `url(${sendImg})`}}
+                                type="submit"
+                                className={styles.button}>
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <button style={{backgroundImage: `url(${sendImg})`}}
-                    type="submit"
-                    className={styles.button}>
-                    </button>
-                </div>
+                {/*<div className={styles.error}>*/}
+                {/*    {*/}
+                {/*        errors.messageText && touched.messageText && <div className={styles.error}>{errors.messageText}</div>*/}
+                {/*    }*/}
+                {/*</div>*/}
             </Form>
           )}
 

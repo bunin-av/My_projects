@@ -49,7 +49,7 @@ export const authAPI = {
     logIn(logInData: LogInDataType) {
         return axiosInstance.post(`auth/login`, logInData)
           .then(response => {
-             return  response.data
+             return response.data
           })
     },
     logOut() {
