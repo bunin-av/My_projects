@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ab30efa3-af92-4b4a-bdc7-d2850dc4f69c" name="Default Changelist" comment="77 &#10;login input validations added&#10;78&#10;login &amp; logout api added">
+      <change afterPath="$PROJECT_DIR$/src/redux/app-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Content/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Content/Content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/LoginForm/LoginFrom.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/LoginForm/LoginFrom.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/MyPostsContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/PostsFeed/Post/Post.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/PostsFeed/Post/Post.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/MyPosts/PostsFeed/PostsFeed.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/MyPosts/PostsFeed/PostsFeed.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/auth-reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/auth-reducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/profile-reducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/profile-reducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/redux-store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/redux-store.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1sJb2Y2jjtmcAWnr7f75E2EFc7k" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Login/LoginForm" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="D:\front-end\My_projects\my-app-01\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\front-end\My_projects\my-app-01\src\components\Login\LoginForm" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ab30efa3-af92-4b4a-bdc7-d2850dc4f69c" name="Default Changelist" comment="" />
+      <created>1620593438485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620593438485</updated>
+      <workItem from="1620593440532" duration="4430000" />
+      <workItem from="1620630454503" duration="13724000" />
+      <workItem from="1620848840057" duration="4753000" />
+      <workItem from="1620930087738" duration="7357000" />
+      <workItem from="1621019501596" duration="4124000" />
+      <workItem from="1621048979327" duration="24982000" />
+      <workItem from="1621175872807" duration="4312000" />
+      <workItem from="1621194815867" duration="2756000" />
+      <workItem from="1621455393964" duration="3852000" />
+      <workItem from="1621530757633" duration="5528000" />
+      <workItem from="1621674835456" duration="29000" />
+      <workItem from="1621716576258" duration="8183000" />
+      <workItem from="1621752268333" duration="803000" />
+      <workItem from="1621782377193" duration="3651000" />
+      <workItem from="1621795953957" duration="5037000" />
+      <workItem from="1622144927727" duration="106000" />
+    </task>
+    <task id="LOCAL-00001" summary="75 &#10;Formik added as login page form">
+      <created>1620650267129</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620650267129</updated>
+    </task>
+    <task id="LOCAL-00002" summary="76 &#10;Message and post form made with Formik">
+      <created>1620938743770</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1620938743770</updated>
+    </task>
+    <task id="LOCAL-00003" summary="77 &#10;login input validations added&#10;78&#10;login &amp; logout api added">
+      <created>1621114587668</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621114587668</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="75 &#10;Formik added as login page form" />
+    <MESSAGE value="76 &#10;Message and post form made with Formik" />
+    <MESSAGE value="77 &#10;login input validations added&#10;78&#10;login &amp; logout api added" />
+    <option name="LAST_COMMIT_MESSAGE" value="77 &#10;login input validations added&#10;78&#10;login &amp; logout api added" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1515" height="204" key="GridCell.Tab.0.bottom" timestamp="1621728729771">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621728729771" />
+    <state width="1515" height="204" key="GridCell.Tab.0.center" timestamp="1621728729771">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621728729771" />
+    <state width="1515" height="204" key="GridCell.Tab.0.left" timestamp="1621728729771">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621728729771" />
+    <state width="1515" height="204" key="GridCell.Tab.0.right" timestamp="1621728729771">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="204" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621728729771" />
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2" timestamp="1621114604844">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="141" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621114604844" />
+    <state x="76" y="109" width="1499" height="805" key="dock-window-1" timestamp="1620934853010">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="76" y="109" width="1499" height="805" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1620934853010" />
+    <state x="480" y="129" width="576" height="566" key="find.popup" timestamp="1621111589346">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="480" y="129" width="576" height="566" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1621111589346" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1621100000313">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1621100000313" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1621795988639">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1621795988639" />
+  </component>
+</project>
