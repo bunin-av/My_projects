@@ -2,7 +2,7 @@ import styles from './Content.module.scss';
 import Settings from "../Settings/Settings";
 import Music from "../Music/Music";
 import News from "../News/News";
-import {Route} from "react-router-dom";
+import {Redirect, Route} from "react-router-dom";
 import React from "react";
 import MessagesContainer from "../Messages/MessagesContainer";
 import FindFriendsContainer from "../FindFriends/FindFriendsContainer";
@@ -13,6 +13,7 @@ import LoginPage from "../Login/LoginPage";
 const Content = () => {
     return (
       <div className={styles.wrapper}>
+          {/*<Redirect to={'/profile'}/>*/}
           <Route path={'/profile/:userId?'} render={() => <ProfileContainer />}/>
           <Route path={'/messages'} render={() => <MessagesContainer />}/>
           <Route path={'/find_friends'} render={() => <FindFriendsContainer />}/>

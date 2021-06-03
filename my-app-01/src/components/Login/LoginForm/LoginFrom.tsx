@@ -31,7 +31,7 @@ type LoginFromPropsType = {
 }
 
 const LoginForm = (props: LoginFromPropsType) => {
-    const submit = (values: LogInDataType, {setSubmitting}: { setSubmitting: (isSubmitting: boolean) => void }) => {
+    const submit = (values: LogInDataType, {setSubmitting, setStatus, setErrors}: { setSubmitting: (isSubmitting: boolean) => void , setStatus: (status?: any) => void, setErrors: (fields: { [field: string]: string }) => void}) => {
         props.doLogIn(values)
         setSubmitting(false);
     }

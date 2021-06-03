@@ -64,14 +64,16 @@ const authReducer = (state = initialState, action: ActionType) => {
 export default authReducer
 
 //AC
-export const setAuth = (id: number, email: string, login: string, isAuth: boolean) => ({type: SET_AUTH, authData: {id, email, login, isAuth}})
-
+export const setAuth = (id: number, email: string, login: string, isAuth: boolean) => ({
+    type: SET_AUTH,
+    authData: {id, email, login, isAuth}
+})
 
 
 //thunks
 export const getAuthMe = () => {
     return (dispatch: Dispatch<any>) => {
-        authAPI.getAuthMe()
+        return authAPI.getAuthMe()
           .then((data) => {
               if (data.resultCode === 0) {
                   let {id, email, login} = data.data;
@@ -89,6 +91,7 @@ export const doLogIn = (logInData: LogInDataType) => {
                   dispatch(getAuthMe())
               }
           })
+
     }
 }
 
@@ -97,7 +100,7 @@ export const doLogOut = () => {
         authAPI.logOut()
           .then((data) => {
               if (data.resultCode === 0) {
-                  dispatch(setAuth(0,'','',false))
+                  dispatch(setAuth(0, '', '', false))
               }
           })
     }

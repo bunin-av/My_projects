@@ -1,20 +1,12 @@
 import React from "react";
 import Header from "./Header";
 import {connect} from "react-redux";
-import {doLogOut, getAuthMe} from "../../redux/auth-reducer";
+import {doLogOut} from "../../redux/auth-reducer";
 
 
 
 
 class HeaderContainer extends React.Component<any, any> {
-    componentDidMount() {
-/*        profileAPI.getAuthMe()
-          .then((data) => {
-            let {id, email, login} = data.data;
-            this.props.setAuth(id, email, login);
-        })*/
-        this.props.getAuthMe();
-    }
 
     render() {
         return <Header {...this.props}/>
@@ -28,4 +20,4 @@ const mapState = (state: { auth: { login: string, isAuth: boolean } }) => {
     }
 }
 
-export default connect(mapState, {getAuthMe, doLogOut})(HeaderContainer)
+export default connect(mapState, {doLogOut})(HeaderContainer)

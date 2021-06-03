@@ -3,20 +3,22 @@ import styles from "./Profile.module.scss"
 import Wallpaper from "./Wallpaper/Wallpaper";
 import Ava from "./Ava/Ava";
 import Bio from "./Bio/Bio";
-import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import MyPosts from "./MyPosts/MyPosts";
 
 
-
-const Profile = (props:any) => {
+const Profile = (props: any) => {
     return (
       <div className={styles.content}>
-          <Wallpaper />
+          <Wallpaper/>
           <Ava {...props.userProfile}/>
           <Bio {...props.userProfile}
                userStatus={props.userStatus}
                updateMyStatus={props.updateMyStatus}
           />
-          <MyPostsContainer />
+          <MyPosts  postsData={props.postsData}
+                    Ava={<Ava {...props.userProfile}/>}
+                    addPost={props.addPost}
+          />
       </div>
     )
 }
