@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, {ComponentType} from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import TopSidebar from "./components/TopSidebar/TopSidebar";
 import Content from "./components/Content/Content";
@@ -9,7 +9,7 @@ import {getUserProfile} from "./redux/profile-reducer";
 import Preloader from "./components/common/Preloader/Preloader";
 import {getInitialized} from "./redux/app-reducer";
 import {compose} from "redux";
-import {withRouter, Redirect} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 
 type AppPropsType = {
@@ -22,8 +22,6 @@ class App extends React.Component<AppPropsType, any> {
 
     componentDidMount() {
         this.props.getInitialized();
-        // if (this.props.match.url === '/') <Redirect to={'/profile'}/>
-        debugger
     }
 
     render() {
@@ -45,7 +43,7 @@ const mapState = (state: { app: { isInitialized: boolean } }) => ({
     isInitialized: state.app.isInitialized
 })
 
-export default compose<React.Component> (
+export default compose<ComponentType> (
   connect(mapState, {getInitialized, getUserProfile}),
   withRouter
 )(App);

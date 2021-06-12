@@ -6,13 +6,17 @@
     background: #1c1d22;
     color: white;
 
-    span{
+    span {
         margin: 0 10px;
+        cursor: pointer;
     }
-    .selectedPage{
+
+    .selectedPage {
         font-weight: bold;
         color: #48b9f3;
+        cursor: default;
     }
+
     .users {
         grid-column-start: 1;
         display: flex;
@@ -59,10 +63,12 @@
         color: white;
         padding-top: 15px;
     }
-    .buttons{
+
+    .buttons {
         margin: auto 300px auto 30px;
         display: flex;
-        button{
+
+        button {
             width: 100px;
             margin: 10px;
         }

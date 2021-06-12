@@ -44,7 +44,6 @@ const authReducer = (state = initialState, action: ActionType) => {
             return {
                 ...state,
                 ...action.authData,
-                // isAuth: true,
             }
         case LOG_IN:
             return {
@@ -63,11 +62,13 @@ const authReducer = (state = initialState, action: ActionType) => {
 
 export default authReducer
 
+type setAuthType = ReturnType<typeof setAuth>
+
 //AC
 export const setAuth = (id: number, email: string, login: string, isAuth: boolean) => ({
     type: SET_AUTH,
     authData: {id, email, login, isAuth}
-})
+}) as const
 
 
 //thunks
@@ -91,7 +92,6 @@ export const doLogIn = (logInData: LogInDataType) => {
                   dispatch(getAuthMe())
               }
           })
-
     }
 }
 
