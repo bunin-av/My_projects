@@ -1,6 +1,13 @@
 import React from "react";
 import Profile from "./Profile";
-import {addPost, getUserProfile, getUserStatus, updateMyStatus, UserProfileType} from "../../redux/profile-reducer";
+import {
+    addPost,
+    deletePost,
+    getUserProfile,
+    getUserStatus,
+    updateMyStatus,
+    UserProfileType
+} from "../../redux/profile-reducer";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import withAuthRedirect from "../HOC/AuthRedirect";
@@ -52,7 +59,7 @@ let mapState = (state: MSTPType) => ({
 })
 
 export default compose<React.ComponentType>(
-  connect(mapState, {getUserProfile, getUserStatus, updateMyStatus, addPost}),
+  connect(mapState, {getUserProfile, getUserStatus, updateMyStatus, addPost, deletePost}),
   withAuthRedirect,
   withRouter,
 )(ProfileContainer)

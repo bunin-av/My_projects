@@ -18,6 +18,7 @@ const Profile = (props: any) => {
           <MyPosts  postsData={props.postsData}
                     Ava={<Ava {...props.userProfile}/>}
                     addPost={props.addPost}
+                    deletePost={props.deletePost}
           />
       </div>
     )

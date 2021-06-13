@@ -6,6 +6,8 @@ type PostPropsType = {
     message: string,
     likes: number
     Ava: React.FC
+    deletePost: (id:number)=>void
+    postID: number
 }
 
 const Post = (props: PostPropsType) => {
@@ -21,6 +23,7 @@ const Post = (props: PostPropsType) => {
           <div>
               {props.likes}
           </div>
+          <button className={styles.deleteButton} onClick={()=> props.deletePost(props.postID)}>x</button>
       </div>
     )
 }

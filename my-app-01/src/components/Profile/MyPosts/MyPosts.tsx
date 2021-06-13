@@ -9,7 +9,7 @@ const MyPosts = (props: any) => {
       <div className={styles.MyPosts}>
           <h3>My posts</h3>
           <PostInput addNewPost={props.addPost}/>
-          <PostsFeed postsData={props.postsData} Ava={props.Ava}/>
+          <PostsFeed postsData={props.postsData} Ava={props.Ava} deletePost={props.deletePost}/>
       </div>
     )
 }

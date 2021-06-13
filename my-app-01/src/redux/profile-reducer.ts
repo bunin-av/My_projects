@@ -3,10 +3,11 @@ import {Dispatch} from "redux";
 
 
 //types of actions
-const ADD_POST: string = "ADD_POST";
-const NEW_POST_UPDATE: string = "NEW_POST_UPDATE";
-const SET_USER_PROFILE: string = 'SET_USER_PROFILE';
-const SET_STATUS: string = 'SET_STATUS';
+export const ADD_POST = 'ADD_POST';
+// const NEW_POST_UPDATE: string = "NEW_POST_UPDATE";
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
+const DELETE_POST = 'DELETE_POST'
 
 // types
 export type postsDataType = Array<postType>
@@ -37,15 +38,13 @@ export type UserProfileType = {
     mainLink?: string
     photos?: { small: string, large: string }
 }
-export type actionType = {
-    type: string
-    newText: string
-    userProfile: UserProfileType
-    status: string
-}
+export type actionType = ReturnType<typeof addPost>
+  | ReturnType<typeof setUserProfile>
+  | ReturnType<typeof setUserStatus>
+  | ReturnType<typeof deletePost>
 
 // reducer
-let initialState: initialStateType = {
+const initialState: initialStateType = {
     postsData: [
         {id: 1, text: "Hi, man!", likes: 10},
         {id: 2, text: "It's my first app!", likes: 12},
@@ -56,21 +55,21 @@ let initialState: initialStateType = {
     userStatus: '',
 };
 
-const profileReducer = (state = initialState, action: actionType) => {
+export const profileReducer = (state = initialState, action: actionType) => {
     switch (action.type) {
         case ADD_POST: {
-            // let allPosts = store.getState().profilePage.postsData
-            let newPost: { id: number; text: string; likes: number } = {
-                // id: getState().profilePage.postsData[store.getState().profilePage.postsData.length-1].id+1,
-                id: 5,
+            let newPost: postType = {
+                id: new Date().getTime(),
                 text: action.newText,
                 likes: 0
             };
             return {...state, postsData: [newPost, ...state.postsData]};
         }
-        // case NEW_POST_UPDATE: {
-        //     return {...state, newPostText: action.newText};
-        // }
+        case DELETE_POST:
+            return {...state, postsData: [...state.postsData].filter(p => p.id !== action.id)}
+      // case NEW_POST_UPDATE: {
+      //     return {...state, newPostText: action.newText};
+      // }
         case SET_USER_PROFILE: {
             return {...state, userProfile: action.userProfile}
         }
@@ -85,10 +84,11 @@ const profileReducer = (state = initialState, action: actionType) => {
 export default profileReducer;
 
 //AC
-export const addPost = (newText: string) => ({type: ADD_POST, newText});
+export const addPost = (newText: string) => ({type: ADD_POST, newText}) as const
+export const deletePost = (id: number) => ({type: DELETE_POST, id}) as const
 // export const newPostUpdateActionCreator = (text: string) => ({type: NEW_POST_UPDATE, newText: text});
-export const setUserProfile = (userProfile: UserProfileType) => ({type: SET_USER_PROFILE, userProfile})
-export const setUserStatus = (userStatus: string) => ({type: SET_STATUS, status: userStatus})
+export const setUserProfile = (userProfile: UserProfileType) => ({type: SET_USER_PROFILE, userProfile}) as const
+export const setUserStatus = (userStatus: string) => ({type: SET_STATUS, status: userStatus}) as const
 
 //thunks
 export const getUserProfile = (userId: number, authId: number) => {
