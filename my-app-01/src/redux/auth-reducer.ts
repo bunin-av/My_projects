@@ -73,35 +73,29 @@ export const setAuth = (id: number, email: string, login: string, isAuth: boolea
 
 //thunks
 export const getAuthMe = () => {
-    return (dispatch: Dispatch<any>) => {
-        return authAPI.getAuthMe()
-          .then((data) => {
-              if (data.resultCode === 0) {
-                  let {id, email, login} = data.data;
-                  dispatch(setAuth(id, email, login, true));
-              }
-          })
+    return async (dispatch: Dispatch<any>) => {
+        const data = await authAPI.getAuthMe()
+        if (data.resultCode === 0) {
+            let {id, email, login} = data.data;
+            dispatch(setAuth(id, email, login, true));
+        }
     }
 }
 
 export const doLogIn = (logInData: LogInDataType) => {
-    return (dispatch: (data: {}) => void) => {
-        authAPI.logIn(logInData)
-          .then((data) => {
-              if (data.resultCode === 0) {
-                  dispatch(getAuthMe())
-              }
-          })
+    return async (dispatch: (data: {}) => void) => {
+        const data = await authAPI.logIn(logInData)
+        if (data.resultCode === 0) {
+            dispatch(getAuthMe())
+        }
     }
 }
 
 export const doLogOut = () => {
-    return (dispatch: Dispatch<any>) => {
-        authAPI.logOut()
-          .then((data) => {
-              if (data.resultCode === 0) {
-                  dispatch(setAuth(0, '', '', false))
-              }
-          })
+    return async (dispatch: Dispatch<any>) => {
+        const data = await authAPI.logOut()
+        if (data.resultCode === 0) {
+            dispatch(setAuth(0, '', '', false))
+        }
     }
 }

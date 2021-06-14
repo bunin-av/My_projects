@@ -89,43 +89,36 @@ export const followingProgress = (isFetching: boolean, userId: number) => ({
 
 // thunks
 export const getUsers = (currentPage: number, pageSize: number, isChangePage: boolean) => {
-    return (dispatch: (arg0: { type: string; isFetching?: boolean; count?: number; friends?: any; }) => void) => {
+    return async (dispatch: any) => {
         dispatch(toggleIsFetching(true));
-        usersAPI.getUsers(currentPage, pageSize)
-          .then((data) => {
-              dispatch(toggleIsFetching(false));
-              dispatch(setUsers(data.items));
-              dispatch(setFriendList(data.items.filter((u: any) => u.followed)))
-              if (isChangePage) {
-                  dispatch(changePage(currentPage))
-              } else {
-                  dispatch(setTotalCount(data.totalCount / 100))
-              }
-          });
+        const data = await usersAPI.getUsers(currentPage, pageSize)
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(data.items));
+        dispatch(setFriendList(data.items.filter((u: any) => u.followed)))
+        (isChangePage)
+          ? dispatch(changePage(currentPage))
+          : dispatch(setTotalCount(data.totalCount / 100))
     }
 }
 
+
 export const followUnfollowUser = (isUserFollowed: boolean, userId: number) => {
-    return (dispatch: (arg0: { type: string; isFetching?: boolean; userId?: number; id?: number; friends?: any; }) => void, getState: Function) => {
+    return async (dispatch: (arg0: { type: string; isFetching?: boolean; userId?: number; id?: number; friends?: any; }) => void, getState: Function) => {
         dispatch(followingProgress(true, userId));
         if (!isUserFollowed) {
-            usersAPI.followUser(userId)
-              .then((data) => {
-                  if (data.resultCode === 0) {
-                      dispatch(toggleFriend(userId));
-                      dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
-                      dispatch(followingProgress(false, userId));
-                  }
-              })
+            const data = await usersAPI.followUser(userId)
+            if (data.resultCode === 0) {
+                dispatch(toggleFriend(userId));
+                dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
+                dispatch(followingProgress(false, userId));
+            }
         } else if (isUserFollowed) {
-            usersAPI.unfollowUser(userId)
-              .then((data) => {
-                  if (data.resultCode === 0) {
-                      dispatch(toggleFriend(userId));
-                      dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
-                      dispatch(followingProgress(false, userId));
-                  }
-              })
+            const data = await usersAPI.unfollowUser(userId)
+            if (data.resultCode === 0) {
+                dispatch(toggleFriend(userId));
+                dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
+                dispatch(followingProgress(false, userId));
+            }
         }
     }
 }
