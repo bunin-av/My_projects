@@ -1,4 +1,5 @@
 import {usersAPI} from "../API/API";
+import {ThunkDispatch} from "redux-thunk";
 
 
 // actions
@@ -89,12 +90,12 @@ export const followingProgress = (isFetching: boolean, userId: number) => ({
 
 // thunks
 export const getUsers = (currentPage: number, pageSize: number, isChangePage: boolean) => {
-    return async (dispatch: any) => {
+    return async (dispatch: ThunkDispatch<any, unknown, any>) => {
         dispatch(toggleIsFetching(true));
         const data = await usersAPI.getUsers(currentPage, pageSize)
         dispatch(toggleIsFetching(false));
         dispatch(setUsers(data.items));
-        dispatch(setFriendList(data.items.filter((u: any) => u.followed)))
+        dispatch(setFriendList(data.items.filter((u: any) => u.followed)));
         (isChangePage)
           ? dispatch(changePage(currentPage))
           : dispatch(setTotalCount(data.totalCount / 100))
@@ -103,22 +104,19 @@ export const getUsers = (currentPage: number, pageSize: number, isChangePage: bo
 
 
 export const followUnfollowUser = (isUserFollowed: boolean, userId: number) => {
-    return async (dispatch: (arg0: { type: string; isFetching?: boolean; userId?: number; id?: number; friends?: any; }) => void, getState: Function) => {
+    return async (dispatch: any, getState: any) => {
         dispatch(followingProgress(true, userId));
-        if (!isUserFollowed) {
-            const data = await usersAPI.followUser(userId)
-            if (data.resultCode === 0) {
-                dispatch(toggleFriend(userId));
-                dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
-                dispatch(followingProgress(false, userId));
-            }
-        } else if (isUserFollowed) {
-            const data = await usersAPI.unfollowUser(userId)
-            if (data.resultCode === 0) {
-                dispatch(toggleFriend(userId));
-                dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
-                dispatch(followingProgress(false, userId));
-            }
-        }
+        (!isUserFollowed)
+          ? followUnfollowFunc(dispatch, usersAPI.followUser, userId, getState)
+          : followUnfollowFunc(dispatch, usersAPI.unfollowUser, userId, getState)
+    }
+}
+
+const followUnfollowFunc = async (dispatch: any, APIMethod: any, userId: any, getState: any) => {
+    const data = await APIMethod(userId)
+    if (data.resultCode === 0)  {
+        dispatch(toggleFriend(userId));
+        dispatch(setFriendList(getState().findFriendsPage.users.filter((u: any) => u.followed)));
+        dispatch(followingProgress(false, userId));
     }
 }
