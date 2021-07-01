@@ -1,15 +1,16 @@
-import {Dispatch} from "redux";
 import {getAuthMe} from "./auth-reducer";
 import {ThunkDispatch} from "redux-thunk";
 
 const INITIALIZE_APP = 'INITIALIZE_APP'
 
-
+type StateType = typeof initialState
 const initialState = {
     isInitialized: false,
 }
 
-export const appReducer = (state = initialState, action: { type: string }) => {
+type ActionType = ReturnType<typeof initializeApp>
+
+export const appReducer = (state: StateType = initialState, action: ActionType): StateType => {
     switch (action.type) {
         case INITIALIZE_APP:
             return {

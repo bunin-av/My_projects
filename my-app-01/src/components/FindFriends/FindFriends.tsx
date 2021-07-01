@@ -18,6 +18,7 @@ const FindFriends = (props: any) => {
           {props.users.map((u: any) => {
               return (
                 <User
+                  key={u.id}
                   user={u}
                   followingInProgress={props.followingInProgress}
                   followUnfollowUser={props.followUnfollowUser}

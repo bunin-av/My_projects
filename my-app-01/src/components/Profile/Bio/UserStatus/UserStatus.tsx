@@ -5,9 +5,7 @@ type UserStatusPropsType = {
 }
 
 function UserStatus(props: UserStatusPropsType) {
-    const statusStyle = {
-        color: (!props.status) ? 'gray' : 'white'
-    }
+    const statusStyle = {color: (!props.status) ? 'gray' : 'white'}
 
     return (
       <div style={statusStyle} >

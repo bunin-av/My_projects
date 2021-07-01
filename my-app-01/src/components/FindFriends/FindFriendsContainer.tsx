@@ -1,13 +1,17 @@
-import {connect} from "react-redux";
-import {followingProgress, followUnfollowUser, getUsers, toggleFriend,} from "../../redux/findFriends-reducer";
+import {connect, ConnectedProps} from "react-redux";
+import {
+    findFriendsActions,
+    followUnfollowUser,
+    getUsers,
+} from "../../redux/findFriends-reducer";
 import React from "react";
 import FindFriends from "./FindFriends";
 import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";
-import withAuthRedirect from "../HOC/AuthRedirect";
+import withAuthRedirect from "../HOC/withAuthRedirect";
 
 
-class FindFriendsContainerAPI extends React.Component<any, any> {
+class FindFriendsContainerAPI extends React.Component<FindFriendsProps> {
 
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize, false)
@@ -56,17 +60,23 @@ let mapState = (state: any) => {
         }
     }
 }*/
+const connector = connect(mapState,
+  {
+      toggleFriend: findFriendsActions.toggleFriend,
+      followingProgress: findFriendsActions.followingProgress,
+      getUsers,
+      followUnfollowUser,
+  })
+type FindFriendsProps = ConnectedProps<typeof connector>
 
-// const FindFriendsContainer = connect(mapState, mapDispatch)(FindFriendsContainerAPI);
 export default compose<React.ComponentType>(
-  connect(mapState,
-    {
-        toggleFriend,
-        followingProgress,
-        getUsers,
-        followUnfollowUser,
-    }),
+  connector,
   withAuthRedirect
 )(FindFriendsContainerAPI)
+
+
+
+
+
 
 

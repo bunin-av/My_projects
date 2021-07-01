@@ -17,12 +17,12 @@ let reducers = combineReducers({
 })
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware))
+export type RootState = ReturnType<typeof store.getState>
 
-declare global {
-    interface Window {
-        store: any
-    }
-}
+export type InferActionTypes<T> = T extends { [keys: string]: (...args: any[]) => infer U } ? U : never
+
+
+//@ts-ignore
 window.store = store
 
 export default store

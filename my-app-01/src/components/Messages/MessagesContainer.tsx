@@ -1,7 +1,7 @@
 import Messages from "./Messages";
-import {sendMessage} from "../../redux/messages-reducer";
+import {messageActions} from "../../redux/messages-reducer";
 import {connect} from "react-redux";
-import withAuthRedirect from "../HOC/AuthRedirect";
+import withAuthRedirect from "../HOC/withAuthRedirect";
 import {compose} from "redux";
 import React from "react";
 
@@ -28,7 +28,7 @@ let mapStateToProps = (state: { messagesPage: { dialogsData: any; messagesData: 
 }*/
 
 export default compose<React.ComponentType>(
-  connect(mapStateToProps, {sendMessage}),
+  connect(mapStateToProps, {sendMessage: messageActions.sendMessage}),
   withAuthRedirect
 )(Messages)
 

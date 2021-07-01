@@ -10,7 +10,7 @@ import {
 } from "../../redux/profile-reducer";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-import withAuthRedirect from "../HOC/AuthRedirect";
+import withAuthRedirect from "../HOC/withAuthRedirect";
 import {compose} from "redux";
 import {RouteComponentProps} from "react-router";
 import {
@@ -20,6 +20,7 @@ import {
     getUserProfileSl,
     getUserStatusSl
 } from "../../redux/profile-selectors";
+import {RootState} from "../../redux/redux-store";
 
 
 export type MSTPType = {
@@ -50,7 +51,7 @@ class ProfileContainer extends React.Component<PropsType, {}> {
     }
 }
 
-let mapState = (state: MSTPType) => ({
+let mapState = (state: RootState) => ({
     userProfile: getUserProfileSl(state),
     authId: getAuthIDSl(state),
     isAuth: getIsAuthSl(state),

@@ -1,4 +1,6 @@
 // const NEW_MESSAGE_UPDATE: string = "NEW_MESSAGE_UPDATE";
+import {InferActionTypes} from "./redux-store";
+
 const SEND_MESSAGE: string = "SEND_MESSAGE";
 
 //types
@@ -52,7 +54,9 @@ let initialState: initialStateType = {
     // newMessageText: ''
 };
 
-const messagesReducer = (state = initialState, action: { type: string; messageText: string; }) => {
+type ActionTypes = InferActionTypes<typeof messageActions>
+
+const messagesReducer = (state = initialState, action: ActionTypes) => {
     switch (action.type) {
         case SEND_MESSAGE: {
             let newMessage = {id: 5, text: action.messageText};
@@ -62,19 +66,21 @@ const messagesReducer = (state = initialState, action: { type: string; messageTe
                 // newMessageText: ''
             };
         }
-        // case NEW_MESSAGE_UPDATE: {
-        //     return {
-        //         ...state,
-        //         newMessageText: action.newText
-        //     };
-        // }
+      // case NEW_MESSAGE_UPDATE: {
+      //     return {
+      //         ...state,
+      //         newMessageText: action.newText
+      //     };
+      // }
         default:
             return state;
     }
 }
 
 // AC
-export const sendMessage = (messageText: string) => ({type: SEND_MESSAGE, messageText});
-// export const newMessageUpdate = (text: string) => ({type: NEW_MESSAGE_UPDATE, newText: text});
+export const messageActions = {
+    sendMessage: (messageText: string) => ({type: SEND_MESSAGE, messageText}) as const,
+}
+
 
 export default messagesReducer

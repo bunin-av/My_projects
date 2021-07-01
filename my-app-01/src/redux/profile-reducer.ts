@@ -38,7 +38,7 @@ export type UserProfileType = {
     mainLink?: string
     photos?: { small: string, large: string }
 }
-export type actionType = ReturnType<typeof addPost>
+export type ActionType = ReturnType<typeof addPost>
   | ReturnType<typeof setUserProfile>
   | ReturnType<typeof setUserStatus>
   | ReturnType<typeof deletePost>
@@ -55,7 +55,7 @@ const initialState: initialStateType = {
     userStatus: '',
 };
 
-export const profileReducer = (state = initialState, action: actionType) => {
+export const profileReducer = (state = initialState, action: ActionType) => {
     switch (action.type) {
         case ADD_POST: {
             let newPost: postType = {
@@ -92,25 +92,25 @@ export const setUserStatus = (userStatus: string) => ({type: SET_STATUS, status:
 
 //thunks
 export const getUserProfile = (userId: number, authId: number) => {
-    return async (dispatch: Dispatch<actionType>) => {
+    return async (dispatch: Dispatch<ActionType>) => {
         if (!userId) userId = authId;
         const data = await profileAPI.getUserProfile(userId)
-        dispatch(setUserProfile(data) as actionType);
+        dispatch(setUserProfile(data) as ActionType);
     }
 }
 
 export const getUserStatus = (userId: number) => {
-    return async (dispatch: Dispatch<actionType>) => {
+    return async (dispatch: Dispatch<ActionType>) => {
         const data = await profileAPI.getUserStatus(userId)
-        dispatch(setUserStatus(data) as actionType);
+        dispatch(setUserStatus(data) as ActionType);
     }
 }
 
 export const updateMyStatus = (status: string) => {
-    return async (dispatch: Dispatch<actionType>) => {
+    return async (dispatch: Dispatch<ActionType>) => {
         const data = await profileAPI.updateMyStatus(status)
         if (data.resultCode === 0) {
-            dispatch(setUserStatus(status) as actionType);
+            dispatch(setUserStatus(status) as ActionType);
         }
     }
 }
