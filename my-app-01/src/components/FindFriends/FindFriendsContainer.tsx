@@ -9,6 +9,7 @@ import FindFriends from "./FindFriends";
 import Preloader from "../common/Preloader/Preloader";
 import {compose} from "redux";
 import withAuthRedirect from "../HOC/withAuthRedirect";
+import {RootState} from "../../redux/redux-store";
 
 
 class FindFriendsContainerAPI extends React.Component<FindFriendsProps> {
@@ -29,7 +30,7 @@ class FindFriendsContainerAPI extends React.Component<FindFriendsProps> {
     }
 }
 
-let mapState = (state: any) => {
+let mapState = (state: RootState) => {
     return {
         users: state.findFriendsPage.users,
         pageSize: state.findFriendsPage.pageSize,

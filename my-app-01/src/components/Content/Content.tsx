@@ -7,8 +7,9 @@ import React from "react";
 import FindFriendsContainer from "../FindFriends/FindFriendsContainer";
 import ProfileContainer from "../Profile/ProfileContainer";
 import LoginPage from "../Login/LoginPage";
+
+
 const MessagesContainer = React.lazy(() => import('../Messages/MessagesContainer'));
-// import MessagesContainer from "../Messages/MessagesContainer";
 
 
 const Content = () => {

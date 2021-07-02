@@ -1,12 +1,14 @@
 import React from "react";
-import LoginForm from "./LoginForm/LoginFrom";
-import {connect} from "react-redux";
-import {AuthStateType, doLogIn} from "../../redux/auth-reducer";
+import LoginForm from "./LoginForm/LoginForm";
+import {connect, ConnectedProps} from "react-redux";
+import {doLogIn} from "../../redux/auth-reducer";
 import styles from './Login.module.scss'
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
+import {RootState} from "../../redux/redux-store";
 
+type LoginProps = ConnectedProps<typeof connector>
 
-const LoginPage = (props: any) => {
+const LoginPage = (props: LoginProps) => {
     if (props.auth.isAuth) {
         return <Redirect to={`/profile`}/>
     }
@@ -19,11 +21,11 @@ const LoginPage = (props: any) => {
     )
 }
 
-const MSTP = (state: { auth: AuthStateType }) => {
+const MSTP = (state: RootState) => {
     return {
         auth: state.auth
     }
 }
-
-export default connect(MSTP, {doLogIn})(LoginPage)
+const connector = connect(MSTP, {doLogIn})
+export default connector(LoginPage)
 

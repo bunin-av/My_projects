@@ -1,12 +1,13 @@
 import Messages from "./Messages";
 import {messageActions} from "../../redux/messages-reducer";
-import {connect} from "react-redux";
+import {connect, ConnectedProps} from "react-redux";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import {compose} from "redux";
 import React from "react";
+import {RootState} from "../../redux/redux-store";
 
 
-let mapStateToProps = (state: { messagesPage: { dialogsData: any; messagesData: any; newMessageText: any; }; auth: { isAuth: boolean; }; }) => {
+let mapStateToProps = (state: RootState) => {
     return {
         dialogsData: state.messagesPage.dialogsData,
         messagesData: state.messagesPage.messagesData,
@@ -14,21 +15,11 @@ let mapStateToProps = (state: { messagesPage: { dialogsData: any; messagesData: 
     }
 }
 
-/*let mapDispatchToProps = (dispatch: (arg0: { type: string; newText?: string; }) => void) => {
-    return {
-        sendMessage: () => {
-            let action = sendMessageActionCreator();
-            dispatch(action);
-        },
-        updateMessageText: (text: string) => {
-            let action = newMessageUpdateActionCreator(text);
-            dispatch(action);
-        }
-    }
-}*/
+export type MessagesProps = ConnectedProps<typeof connector>
+const connector = connect(mapStateToProps, {sendMessage: messageActions.sendMessage})
 
 export default compose<React.ComponentType>(
-  connect(mapStateToProps, {sendMessage: messageActions.sendMessage}),
+  connector,
   withAuthRedirect
 )(Messages)
 

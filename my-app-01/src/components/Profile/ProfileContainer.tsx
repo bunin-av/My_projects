@@ -8,7 +8,7 @@ import {
     updateMyStatus,
     UserProfileType
 } from "../../redux/profile-reducer";
-import {connect} from "react-redux";
+import {connect, ConnectedProps} from "react-redux";
 import {withRouter} from "react-router-dom";
 import withAuthRedirect from "../HOC/withAuthRedirect";
 import {compose} from "redux";
@@ -36,14 +36,20 @@ export type MSTPType = {
     authId: number
     isAuth: boolean
 }
-type MDTPType = any
-type PropsType = MSTPType & MDTPType & RouteComponentProps<{ userId?: string }>
+
+export type ProfileProps = ConnectedProps<typeof connector> & RouteComponentProps<{ userId?: string }>
 
 
-class ProfileContainer extends React.Component<PropsType, {}> {
+class ProfileContainer extends React.Component<ProfileProps> {
     componentDidMount() {
-        this.props.getUserProfile(this.props.match.params.userId, this.props.authId)
-        this.props.getUserStatus(this.props.match.params.userId || this.props.authId)
+        this.props.match.params.userId && this.props.authId &&
+        this.props.getUserProfile(+this.props.match.params.userId, this.props.authId)
+        if (this.props.match.params.userId ){
+            this.props.getUserStatus(+this.props.match.params.userId)
+        }
+        if (this.props.authId){
+            this.props.getUserStatus(this.props.authId)
+        }
     }
 
     render() {
@@ -59,8 +65,14 @@ let mapState = (state: RootState) => ({
     postsData: getPostDataSl(state),
 })
 
+const connector = connect(mapState, {
+      getUserProfile,
+      getUserStatus,
+      updateMyStatus,
+      addPost,
+      deletePost})
 export default compose<React.ComponentType>(
-  connect(mapState, {getUserProfile, getUserStatus, updateMyStatus, addPost, deletePost}),
+  connector,
   withAuthRedirect,
   withRouter,
 )(ProfileContainer)

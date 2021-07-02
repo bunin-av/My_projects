@@ -1,18 +1,14 @@
 import React from "react";
 import styles from './Dialog.module.scss'
 import {NavLink} from "react-router-dom";
+import {DialogType} from "../../../redux/messages-reducer";
 
-type DialogPropsType = {
-    userId: number,
-    userName: string,
-    avaUrl: string,
-}
-const Dialog = (props: DialogPropsType) => {
+const Dialog = (props: DialogType) => {
     return (
       <div className={styles.dialogs}>
           <UserAva avaUrl={props.avaUrl}/>
           <div className={styles.userInfo}>
-              <NavLink to={'/messages/' + props.userId}>{props.userName}</NavLink>
+              <NavLink to={'/messages/' + props.id}>{props.userName}</NavLink>
           </div>
       </div>
     )

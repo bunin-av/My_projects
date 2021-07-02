@@ -2,20 +2,21 @@ import styles from "./FindFriends.module.scss";
 import {NavLink} from "react-router-dom";
 import userPhoto from "../../assets/images/userS1.png";
 import React from "react";
+import {UserStateType} from "../../redux/findFriends-reducer";
 
-type UserType = {
-    user: {id: number, followed: boolean, name:string,photos:{large:string}}
-    followingInProgress: []
-    followUnfollowUser: (followed: boolean, id:number)=> void
+type UserPropsType = {
+    user: UserStateType
+    followingInProgress: number[]
+    followUnfollowUser: (followed: boolean, id: number) => void
 }
 
-function User(props: UserType) {
+function User(props: UserPropsType) {
     const user = props.user
     return (
       <div className={styles.users} key={user.id}>
           <div className={styles.userAva}>
               <NavLink to={'/profile/' + user.id}>
-                  <img src={user.photos.large != null ? user.photos.large : userPhoto} alt=""/>
+                  <img src={user.photos.large != null ? user.photos.large : userPhoto} alt="user_photo"/>
               </NavLink>
           </div>
           <div className={styles.userInfo}>

@@ -1,6 +1,6 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import React from "react";
-import {LogInDataType} from "../../../redux/auth-reducer";
+import {AuthStateType, LogInDataType} from "../../../redux/auth-reducer";
 import {emailValidation, passwordValidation} from "../../../assets/validations/validations";
 import styles from '../Login.module.scss'
 
@@ -16,17 +16,9 @@ import styles from '../Login.module.scss'
 //     return errors;
 // }
 
-type AuthType = {
-    captcha: boolean
-    email: string
-    id: number
-    isAuth: boolean
-    login: string
-    password: string | null
-    rememberMe: boolean
-}
+
 type LoginFromPropsType = {
-    auth: AuthType
+    auth: AuthStateType
     doLogIn: (logInData: LogInDataType) => void
 }
 

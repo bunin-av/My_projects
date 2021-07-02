@@ -1,6 +1,6 @@
 import axios from "axios";
 import {LogInDataType} from "../redux/auth-reducer";
-import {User} from "../redux/findFriends-reducer";
+import {UserStateType} from "../redux/findFriends-reducer";
 import {UserProfileType} from "../redux/profile-reducer";
 
 const axiosInstance = axios.create({
@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 type UsersGet = {
     error: string
     totalCount: number
-    items: User[]
+    items: UserStateType[]
 }
 type StandardResponse = {
     resultCode: number
@@ -22,11 +22,7 @@ type StandardResponse = {
 export const usersAPI = {
     getUsers(currentPage: number, pageSize: number) {
         return axiosInstance.get<UsersGet>(`users?page=${currentPage}&count=${pageSize}`)
-          .then(response => {
-              console.log(response.data)
-              return response.data
-          })
-
+          .then(response => response.data)
     },
     followUser(id: number) {
         return axiosInstance.post<StandardResponse>(`follow/${id}`)

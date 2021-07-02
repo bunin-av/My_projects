@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./Header.module.scss"
 import {NavLink} from "react-router-dom";
+import {HeaderProps} from "./HeaderContainer";
 
-const Header = (props: any) => {
+const Header = (props: HeaderProps) => {
     return (
       <header className={styles.header}>
           <div className={styles.header__logo}>
@@ -17,7 +18,6 @@ const Header = (props: any) => {
                     </NavLink>
               }
           </div>
-
       </header>
     )
 }

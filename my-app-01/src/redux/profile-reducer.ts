@@ -51,7 +51,7 @@ const initialState: initialStateType = {
         {id: 3, text: "Yo guys", likes: 12},
     ],
     // newPostText: '',
-    userProfile: {},
+    userProfile: {} as UserProfileType,
     userStatus: '',
 };
 

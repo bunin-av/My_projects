@@ -2,9 +2,16 @@ import React from "react";
 import styles from "./MyPosts.module.scss";
 import PostInput from "./PostInput/PostInput";
 import PostsFeed from "./PostsFeed/PostsFeed";
+import {postsDataType} from "../../../redux/profile-reducer";
 
+type MePostsProps = {
+    postsData: postsDataType
+    Ava: JSX.Element
+    addPost: (text: string) => void
+    deletePost: (id: number) => void
+}
 
-const MyPosts = (props: any) => {
+const MyPosts = (props: MePostsProps) => {
     return (
       <div className={styles.MyPosts}>
           <h3>My posts</h3>

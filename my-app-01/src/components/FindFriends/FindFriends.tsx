@@ -1,10 +1,20 @@
 import styles from './FindFriends.module.scss';
 import React from "react";
 import Paginator from "../Paginator/Paginator";
-import User from "./User";
+import {UserStateType} from "../../redux/findFriends-reducer";
+import User from './User';
 
 
-const FindFriends = (props: any) => {
+type FindFriendsType = {
+    users: UserStateType[]
+    totalUsersCount: number
+    pageSize: number
+    currentPage: number
+    onPageChange: (num: number) => void
+    followingInProgress: number[]
+    followUnfollowUser: (isUserFollowed: boolean, userId: number) => void
+}
+const FindFriends = (props: FindFriendsType) => {
 
     return (
       <div className={styles.wrapper}>
@@ -15,7 +25,7 @@ const FindFriends = (props: any) => {
             currentPage={props.currentPage}
             onPageChange={props.onPageChange}
           />
-          {props.users.map((u: any) => {
+          {props.users.map((u: UserStateType) => {
               return (
                 <User
                   key={u.id}

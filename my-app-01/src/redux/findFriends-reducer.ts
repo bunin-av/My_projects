@@ -13,7 +13,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SET_FRIEND_LIST = 'SET_FRIEND_LIST';
 const FOllOWING_IN_PROGRESS = 'FOllOWING_IN_PROGRESS';
 
-export type User = {
+export type UserStateType = {
     followed: boolean
     id: number
     name: string
@@ -23,12 +23,12 @@ export type User = {
 }
 //reducer
 const initialState = {
-    users: [] as User[],
+    users: [] as UserStateType[],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    friendList: [] as User[],
+    friendList: [] as UserStateType[],
     followingInProgress: [] as number[],
 };
 
@@ -41,7 +41,7 @@ const findFriendsReducer = (state: StateType = initialState, action: ActionTypes
         case TOGGLE_FRIEND:
             return {
                 ...state,
-                users: state.users.map((u: User) => {
+                users: state.users.map((u: UserStateType) => {
                     if (u.id === action.payload.id) {
                         return {...u, followed: !u.followed}
                     }
@@ -75,12 +75,12 @@ export default findFriendsReducer;
 
 //AC
 export const findFriendsActions = {
-    setUsers: (users: User[]) => ({type: SET_USERS, payload: {users}} as const),
+    setUsers: (users: UserStateType[]) => ({type: SET_USERS, payload: {users}} as const),
     toggleFriend: (id: number) => ({type: TOGGLE_FRIEND, payload: {id}} as const),
     changePage: (currentPage: number) => ({type: CHANGE_PAGE, payload: {currentPage}} as const),
     setTotalCount: (totalUsersCount: number) => ({type: SET_COUNT, payload: {totalUsersCount}} as const),
     toggleIsFetching: (isFetching: boolean) => ({type: TOGGLE_IS_FETCHING, payload: {isFetching}} as const),
-    setFriendList: (friendList: User[]) => ({type: SET_FRIEND_LIST, payload: {friendList}} as const),
+    setFriendList: (friendList: UserStateType[]) => ({type: SET_FRIEND_LIST, payload: {friendList}} as const),
     followingProgress: (isFetching: boolean, userId: number) => ({
         type: FOllOWING_IN_PROGRESS, payload: {isFetching, userId}
     } as const),
@@ -95,7 +95,7 @@ export const getUsers = (currentPage: number, pageSize: number, isChangePage: bo
         const data = await usersAPI.getUsers(currentPage, pageSize)
         dispatch(findFriendsActions.toggleIsFetching(false));
         dispatch(findFriendsActions.setUsers(data.items));
-        dispatch(findFriendsActions.setFriendList(data.items.filter((u: User) => u.followed)));
+        dispatch(findFriendsActions.setFriendList(data.items.filter((u: UserStateType) => u.followed)));
         (isChangePage)
           ? dispatch(findFriendsActions.changePage(currentPage))
           : dispatch(findFriendsActions.setTotalCount(data.totalCount / 100))
@@ -120,7 +120,7 @@ const followUnfollowFunc = async (dispatch: Dispatch,
     const data = await APIMethod(userId)
     if (data.resultCode === 0) {
         dispatch(findFriendsActions.toggleFriend(userId));
-        dispatch(findFriendsActions.setFriendList(getState().findFriendsPage.users.filter((u: User) => u.followed)));
+        dispatch(findFriendsActions.setFriendList(getState().findFriendsPage.users.filter((u: UserStateType) => u.followed)));
         dispatch(findFriendsActions.followingProgress(false, userId));
     }
 }

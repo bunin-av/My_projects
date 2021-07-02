@@ -3,15 +3,17 @@ import Dialog from "./Dialog/Dialog";
 import MessageInput from "./MessageInput/MessageInput";
 import styles from './Messages.module.scss'
 import Message from "./Message/Message";
+import {MessagesProps} from "./MessagesContainer";
+import {DialogType, MessageType} from "../../redux/messages-reducer";
 
 
-const Messages = (props: any) => {
+const Messages = (props: MessagesProps) => {
     let messagesElements =
-      props.messagesData.map((message: { text: string }) =>
-        <Message messageText={message.text} key={Math.random() * 100}/>)
+      props.messagesData.map((m: MessageType, i) =>
+        <Message messageText={m.text} key={m.id + i}/>)
     let dialogsElements =
-      props.dialogsData.map((dialogs: { id: number; userName: string; avaUrl: string }) =>
-        <Dialog userId={dialogs.id} userName={dialogs.userName} avaUrl={dialogs.avaUrl} key={Math.random() * 100}/>)
+      props.dialogsData.map((d: DialogType, i) =>
+        <Dialog id={d.id} userName={d.userName} avaUrl={d.avaUrl} key={d.id + i}/>)
     return (
       <div className={styles.messagesWrapper}>
           <div className={styles.searchBar}>Search Alex's messages</div>
