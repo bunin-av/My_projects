@@ -1,6 +1,6 @@
-import profileReducer, {addPost, deletePost, initialStateType} from "../redux/profile-reducer";
+import profileReducer, {addPost, deletePost, InitialStateType} from "../redux/profile-reducer";
 
-const state: initialStateType = {
+const state: InitialStateType = {
     postsData: [
         {id: 1, text: "Hi, man!", likes: 10},
         {id: 2, text: "It's my first app!", likes: 12},

@@ -3,17 +3,18 @@ import {Route} from "react-router-dom";
 import styles from "./Bio.module.scss"
 import MyStatus from "./MyStatus/MyStatus";
 import UserStatus from "./UserStatus/UserStatus";
-import {UserProfileType} from "../../../redux/profile-reducer";
 
-type RestProps = {
-    userStatus: string
-    updateMyStatus: (status: string) => void
-}
+
 const Bio = (props: any) => {
-    console.log(props)
+    const loadPhoto = ((e:React.ChangeEvent<HTMLInputElement>)=>{
+        e.target.files && e.target.files.length &&
+            props.loadPhoto(e.target.files[0])
+    })
+
     return (
       <div className={styles.Bio}>
           <h3>{props.fullName}</h3>
+          {!props.isUser && <input type={'file'} onChange={loadPhoto}/>}
           <ul>
               {/*<li>About me: {props?.aboutMe}</li>*/}
               <li>Web-site: {props.contacts?.website}</li>

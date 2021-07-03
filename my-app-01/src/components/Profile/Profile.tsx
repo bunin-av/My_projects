@@ -14,9 +14,11 @@ const Profile = (props: ProfileProps) => {
           <Bio {...props.userProfile}
                userStatus={props.userStatus}
                updateMyStatus={props.updateMyStatus}
+               loadPhoto={props.loadPhoto}
+               isUser={!!props.match.params.userId}
           />
           <MyPosts  postsData={props.postsData}
-                    Ava={<Ava {...props.userProfile}/>}
+                    Ava={<Ava {...props.userProfile} />}
                     addPost={props.addPost}
                     deletePost={props.deletePost}
           />

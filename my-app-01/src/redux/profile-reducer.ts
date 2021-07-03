@@ -1,6 +1,5 @@
 import {profileAPI} from "../API/API";
 import {Dispatch} from "redux";
-import userPhoto from './../assets/images/user.png'
 
 
 //types of actions
@@ -8,6 +7,7 @@ export const ADD_POST = 'ADD_POST';
 // const NEW_POST_UPDATE: string = "NEW_POST_UPDATE";
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
+const SET_PHOTO = 'SET_PHOTO';
 const DELETE_POST = 'DELETE_POST'
 
 // types
@@ -17,12 +17,8 @@ export type postType = {
     text: string
     likes: number
 }
-export type initialStateType = {
-    postsData: postsDataType
-    // newPostText: string
-    userProfile: UserProfileType
-    userStatus: string
-}
+export type InitialStateType = typeof initialState
+
 export type UserProfileType = {
     userId?: number
     lookingForAJob?: boolean
@@ -43,9 +39,10 @@ export type ActionType = ReturnType<typeof addPost>
   | ReturnType<typeof setUserProfile>
   | ReturnType<typeof setUserStatus>
   | ReturnType<typeof deletePost>
+  | ReturnType<typeof setUserPhoto>
 
 // reducer
-const initialState: initialStateType = {
+const initialState = {
     postsData: [
         {id: 1, text: "Hi, man!", likes: 10},
         {id: 2, text: "It's my first app!", likes: 12},
@@ -54,29 +51,39 @@ const initialState: initialStateType = {
     // newPostText: '',
     userProfile: {} as UserProfileType,
     userStatus: '',
+    userPhoto: '',
 };
 
 export const profileReducer = (state = initialState, action: ActionType) => {
+    console.log(action)
     switch (action.type) {
         case ADD_POST: {
             let newPost: postType = {
                 id: new Date().getTime(),
-                text: action.newText,
+                text: action.payload.newText,
                 likes: 0
             };
             return {...state, postsData: [newPost, ...state.postsData]};
         }
         case DELETE_POST:
-            return {...state, postsData: [...state.postsData].filter(p => p.id !== action.id)}
+            return {...state, postsData: [...state.postsData].filter(p => p.id !== action.payload.id)}
       // case NEW_POST_UPDATE: {
       //     return {...state, newPostText: action.newText};
       // }
-        case SET_USER_PROFILE: {
-            return {...state, userProfile: action.userProfile}
-        }
-        case SET_STATUS: {
-            return {...state, userStatus: action.status}
-        }
+        case SET_PHOTO:
+            return {
+                ...state,
+                userProfile: {
+                    ...state.userProfile,
+                    photos: {
+                        ...state.userProfile.photos,
+                        large: {...action.payload}
+                    }
+                }
+            }
+        case SET_STATUS:
+        case SET_USER_PROFILE:
+            return {...state, ...action.payload}
         default:
             return state;
     }
@@ -85,11 +92,14 @@ export const profileReducer = (state = initialState, action: ActionType) => {
 export default profileReducer;
 
 //AC
-export const addPost = (newText: string) => ({type: ADD_POST, newText}) as const
-export const deletePost = (id: number) => ({type: DELETE_POST, id}) as const
+export const addPost = (newText: string) => ({type: ADD_POST, payload: {newText}}) as const
+export const deletePost = (id: number) => ({type: DELETE_POST, payload: {id}}) as const
 // export const newPostUpdateActionCreator = (text: string) => ({type: NEW_POST_UPDATE, newText: text});
-export const setUserProfile = (userProfile: UserProfileType) => ({type: SET_USER_PROFILE, userProfile}) as const
-export const setUserStatus = (userStatus: string) => ({type: SET_STATUS, status: userStatus}) as const
+export const setUserProfile = (userProfile: UserProfileType) =>
+  ({type: SET_USER_PROFILE, payload: {userProfile}}) as const
+export const setUserStatus = (userStatus: string) =>
+  ({type: SET_STATUS, payload: {userStatus}}) as const
+export const setUserPhoto = (file: string) => ({type: SET_PHOTO, payload: {file}}) as const
 
 //thunks
 export const getUserProfile = (userId: number) => {
@@ -102,6 +112,7 @@ export const getUserProfile = (userId: number) => {
 export const getUserStatus = (userId: number) => {
     return async (dispatch: Dispatch<ActionType>) => {
         const data = await profileAPI.getUserStatus(userId)
+        debugger
         dispatch(setUserStatus(data) as ActionType);
     }
 }
@@ -111,6 +122,16 @@ export const updateMyStatus = (status: string) => {
         const data = await profileAPI.updateMyStatus(status)
         if (data.resultCode === 0) {
             dispatch(setUserStatus(status) as ActionType);
+        }
+    }
+}
+
+export const loadPhoto = (file: File) => {
+
+    return async (dispatch: Dispatch<ActionType>) => {
+        const data = await profileAPI.loadPhoto(file)
+        if (data.resultCode === 0) {
+            dispatch(setUserPhoto(data.data.large) as ActionType);
         }
     }
 }

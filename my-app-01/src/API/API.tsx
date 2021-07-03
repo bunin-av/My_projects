@@ -19,6 +19,14 @@ type StandardResponse = {
     messages: string[]
     data: {}
 }
+type LoadPhoto = {
+    resultCode: number
+    messages: string[]
+    data: {
+        small:string
+        large: string
+    }
+}
 export const usersAPI = {
     getUsers(currentPage: number, pageSize: number) {
         return axiosInstance.get<UsersGet>(`users?page=${currentPage}&count=${pageSize}`)
@@ -42,11 +50,23 @@ export const profileAPI = {
     },
 
     getUserStatus(userId: number) {
+        debugger
         return axiosInstance.get<string>(`profile/status/${userId}`)
           .then(response => response.data)
     },
     updateMyStatus(status: string) {
         return axiosInstance.put<StandardResponse>(`profile/status`, {status})
+          .then(response => response.data)
+    },
+    loadPhoto(file: File) {
+        const formData = new FormData()
+        formData.append("image", file)
+        return axiosInstance.put<LoadPhoto>(`profile/photo`, formData,
+          {
+              headers: {
+                  'Content-Type': 'multipart/form-data'
+              }
+          })
           .then(response => response.data)
     },
 }
@@ -63,7 +83,7 @@ type AuthGet = {
 type AuthPost = {
     resultCode: number
     messages: string[]
-    data: {userId: number} | {}
+    data: { userId: number } | {}
 }
 
 export const authAPI = {
@@ -74,7 +94,7 @@ export const authAPI = {
     logIn(logInData: LogInDataType) {
         return axiosInstance.post<AuthPost>(`auth/login`, logInData)
           .then(response => {
-             return response.data
+              return response.data
           })
     },
     logOut() {
