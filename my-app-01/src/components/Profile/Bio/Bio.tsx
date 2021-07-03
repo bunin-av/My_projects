@@ -10,12 +10,11 @@ type RestProps = {
     updateMyStatus: (status: string) => void
 }
 const Bio = (props: any) => {
+    console.log(props)
     return (
       <div className={styles.Bio}>
           <h3>{props.fullName}</h3>
           <ul>
-              <li>Date of Birth: 05.05.1990</li>
-              <li>City: Moscow</li>
               {/*<li>About me: {props?.aboutMe}</li>*/}
               <li>Web-site: {props.contacts?.website}</li>
               <li>Looking for: {props?.lookingForAJobDescription}</li>

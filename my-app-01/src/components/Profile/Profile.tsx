@@ -6,7 +6,6 @@ import Bio from "./Bio/Bio";
 import MyPosts from "./MyPosts/MyPosts";
 import {ProfileProps} from "./ProfileContainer";
 
-
 const Profile = (props: ProfileProps) => {
     return (
       <div className={styles.content}>

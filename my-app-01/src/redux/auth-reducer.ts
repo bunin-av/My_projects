@@ -1,5 +1,7 @@
 import {authAPI} from "../API/API";
 import {Dispatch} from "redux";
+import {ThunkAction} from "redux-thunk";
+import {RootState} from "./redux-store";
 
 const SET_AUTH: string = 'SET_AUTH'
 const LOG_IN: string = 'LOG_IN'
@@ -19,7 +21,7 @@ export type LogInDataType = {
 }
 
 export type AuthStateType = {
-    id: number | null
+    id: number
     email: string | null
     login: string | null
     isAuth: boolean
@@ -29,7 +31,7 @@ export type AuthStateType = {
 }
 
 const initialState: AuthStateType = {
-    id: null,
+    id: 0,
     email: null,
     login: null,
     isAuth: false,
@@ -73,7 +75,7 @@ export const setAuth = (id: number, email: string, login: string, isAuth: boolea
 
 //thunks
 export const getAuthMe = () => {
-    return async (dispatch: Dispatch<any>) => {
+    return async (dispatch: Dispatch<ReturnType<typeof setAuth>>) => {
         const data = await authAPI.getAuthMe()
         if (data.resultCode === 0) {
             let {id, email, login} = data.data;
@@ -82,17 +84,17 @@ export const getAuthMe = () => {
     }
 }
 
-export const doLogIn = (logInData: LogInDataType) => {
-    return async (dispatch: (data: {}) => void) => {
+export const doLogIn = (logInData: LogInDataType): ThunkAction<void, RootState, unknown, ActionType> => {
+    return async (dispatch) => {
         const data = await authAPI.logIn(logInData)
         if (data.resultCode === 0) {
-            dispatch(getAuthMe())
+            await dispatch(getAuthMe())
         }
     }
 }
 
 export const doLogOut = () => {
-    return async (dispatch: Dispatch<any>) => {
+    return async (dispatch: Dispatch<ReturnType<typeof setAuth>>) => {
         const data = await authAPI.logOut()
         if (data.resultCode === 0) {
             dispatch(setAuth(0, '', '', false))

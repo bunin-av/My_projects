@@ -1,5 +1,6 @@
 import {profileAPI} from "../API/API";
 import {Dispatch} from "redux";
+import userPhoto from './../assets/images/user.png'
 
 
 //types of actions
@@ -36,7 +37,7 @@ export type UserProfileType = {
     website?: string
     youtube?: string
     mainLink?: string
-    photos?: { small: string, large: string }
+    photos: { small: string, large: string }
 }
 export type ActionType = ReturnType<typeof addPost>
   | ReturnType<typeof setUserProfile>
@@ -91,9 +92,8 @@ export const setUserProfile = (userProfile: UserProfileType) => ({type: SET_USER
 export const setUserStatus = (userStatus: string) => ({type: SET_STATUS, status: userStatus}) as const
 
 //thunks
-export const getUserProfile = (userId: number, authId: number) => {
+export const getUserProfile = (userId: number) => {
     return async (dispatch: Dispatch<ActionType>) => {
-        if (!userId) userId = authId;
         const data = await profileAPI.getUserProfile(userId)
         dispatch(setUserProfile(data) as ActionType);
     }
