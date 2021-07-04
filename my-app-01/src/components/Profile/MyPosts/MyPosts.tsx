@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./MyPosts.module.scss";
 import PostInput from "./PostInput/PostInput";
 import PostsFeed from "./PostsFeed/PostsFeed";
-import {postsDataType} from "../../../redux/profile-reducer";
+import {PostsDataType} from "../../../redux/profile-reducer";
 
 type MePostsProps = {
-    postsData: postsDataType
+    postsData: PostsDataType
     Ava: JSX.Element
     addPost: (text: string) => void
     deletePost: (id: number) => void

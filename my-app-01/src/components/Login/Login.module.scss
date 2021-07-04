@@ -16,14 +16,15 @@
     border-radius: 5px;
     width: 200px;
     box-sizing: border-box;
+    outline: none
 }
 
 .errorInput {
     border: 1px solid crimson;
-    //outline: 1px solid crimson;
 }
 
 .errorMessage {
+    color: crimson;
     margin: 0 10px;
     padding: 5px;
 }

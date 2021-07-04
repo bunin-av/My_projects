@@ -4,7 +4,7 @@ import {
     addPost,
     deletePost,
     getUserProfile,
-    getUserStatus, loadPhoto,
+    getUserStatus, loadPhoto, updateMyProfileInfo,
     updateMyStatus,
     UserProfileType
 } from "../../redux/profile-reducer";
@@ -44,7 +44,6 @@ class ProfileContainer extends React.PureComponent<ProfileProps> {
         if (!userId) {
             console.error("ID should exists in URI params or in state ('authorizedUserId')");
         } else {
-            debugger
             this.props.getUserStatus(userId)
             this.props.getUserProfile(userId)
         }
@@ -64,7 +63,6 @@ class ProfileContainer extends React.PureComponent<ProfileProps> {
         }
     }
 
-
     render() {
         return <Profile {...this.props} />
     }
@@ -78,13 +76,11 @@ class ProfileContainer extends React.PureComponent<ProfileProps> {
     postsData: getPostDataSl(state),
 })*/
 let mapState = (state: RootState) => ({
-    //@ts-ignore
+
     userProfile: state.profilePage.userProfile,
     authId: state.auth.id,
     isAuth: state.auth.isAuth,
-    //@ts-ignore
     userStatus: state.profilePage.userStatus,
-    //@ts-ignore
     postsData: state.profilePage.postsData,
 })
 
@@ -95,6 +91,7 @@ const connector = connect(mapState, {
     addPost,
     deletePost,
     loadPhoto,
+    updateMyProfileInfo,
 })
 export default compose<React.ComponentType>(
   connector,

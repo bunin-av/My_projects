@@ -16,6 +16,7 @@ const Profile = (props: ProfileProps) => {
                updateMyStatus={props.updateMyStatus}
                loadPhoto={props.loadPhoto}
                isUser={!!props.match.params.userId}
+               updateMyProfileInfo={props.updateMyProfileInfo}
           />
           <MyPosts  postsData={props.postsData}
                     Ava={<Ava {...props.userProfile} />}

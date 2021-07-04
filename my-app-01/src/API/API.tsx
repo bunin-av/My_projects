@@ -2,6 +2,7 @@ import axios from "axios";
 import {LogInDataType} from "../redux/auth-reducer";
 import {UserStateType} from "../redux/findFriends-reducer";
 import {UserProfileType} from "../redux/profile-reducer";
+import {UserInfoDataType} from "../components/Profile/Bio/EditProfileForm/EditProfileForm";
 
 const axiosInstance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -50,12 +51,15 @@ export const profileAPI = {
     },
 
     getUserStatus(userId: number) {
-        debugger
         return axiosInstance.get<string>(`profile/status/${userId}`)
           .then(response => response.data)
     },
     updateMyStatus(status: string) {
         return axiosInstance.put<StandardResponse>(`profile/status`, {status})
+          .then(response => response.data)
+    },
+    loadProfileInfo(info: UserInfoDataType) {
+        return axiosInstance.put<StandardResponse>(`profile`, info)
           .then(response => response.data)
     },
     loadPhoto(file: File) {
