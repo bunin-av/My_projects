@@ -1,8 +1,7 @@
 import React, {ComponentType} from "react";
-import {connect, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {getIsAuthSl} from "../../redux/profile-selectors";
-import {RootState} from "../../redux/redux-store";
 
 
 function withAuthRedirectComponent<T>(Component: ComponentType<T>) {

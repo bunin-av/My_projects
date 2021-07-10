@@ -1,7 +1,7 @@
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import React from "react";
 import {AuthStateType, LogInDataType} from "../../../redux/auth-reducer";
-import {emailValidation, passwordValidation} from "../../../assets/validations/validations";
+import {captchaValidation, emailValidation, passwordValidation} from "../../../assets/validations/validations";
 import styles from '../Login.module.scss'
 
 // const validate = (values: { email: string; }) => {
@@ -35,7 +35,7 @@ const LoginForm = (props: LoginFromPropsType) => {
     let error
     return (
         <Formik
-            initialValues={{email: '', password: '', rememberMe: false, captcha: false}}
+            initialValues={{email: '', password: '', rememberMe: false, captcha: ''}}
             validate={() => ({})}
             onSubmit={submit}
         >
@@ -62,11 +62,27 @@ const LoginForm = (props: LoginFromPropsType) => {
                         <Field type="checkbox" name="rememberMe"/>
                         Remember me
                     </label>
+
+                    {props.auth.captcha && <div><img src={props.auth.captcha} alt='captcha'/></div>}
+                    {props.auth.captcha &&
+
+                    <Field type="captcha"
+                           name="captcha"
+                           placeholder="Enter symbols"
+                           validate={captchaValidation}
+                           className={`${styles.input} ${(errors.captcha) ? styles.errorInput : ''}`}/>}
+                    {touched.captcha &&
+                    <ErrorMessage name="captcha" component="div" className={styles.errorMessage}/>}
+
                     <div>
                         {(errors.email && errors.password) ? error = true : error = false}
                         <button type="submit" className={styles.button} disabled={error || isSubmitting}>
                             Log In
                         </button>
+                    </div>
+
+                    <div className={styles.errorMessage}>
+                        {props.auth.error[0]}
                     </div>
                 </Form>
             )}

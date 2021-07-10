@@ -11,14 +11,15 @@ import {getInitialized} from "./redux/app-reducer";
 import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {RootState} from "./redux/redux-store";
+import {getCaptcha} from "./redux/auth-reducer";
 
 
 class App extends React.Component<AppProps> {
 
     componentDidMount() {
         this.props.getInitialized();
+        getCaptcha()
     }
-
     render() {
         if (!this.props.isInitialized) {
             return <Preloader/>

@@ -26,6 +26,9 @@ export const emailValidation = (value: string)=>{
 export const passwordValidation = (value: string)=>{
     if (!value) return 'Password required'
 }
+export const captchaValidation = (value: string)=>{
+    if (!value) return 'Symbols required'
+}
 
 // export const maxLength = (value: string) => {
 //     let error

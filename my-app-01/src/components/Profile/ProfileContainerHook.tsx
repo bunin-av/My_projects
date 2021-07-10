@@ -1,13 +1,6 @@
 import React, {useEffect} from "react";
 import Profile from "./Profile";
-import {
-    addPost,
-    deletePost,
-    getUserProfile,
-    getUserStatus,
-    updateMyStatus,
-    UserProfileType
-} from "../../redux/profile-reducer";
+import {addPost, deletePost, getUserProfile, getUserStatus, updateMyStatus} from "../../redux/profile-reducer";
 import {connect, ConnectedProps} from "react-redux";
 import {withRouter} from "react-router-dom";
 import withAuthRedirect from "../HOC/withAuthRedirect";
@@ -23,21 +16,7 @@ import {
 import {RootState} from "../../redux/redux-store";
 
 
-export type MSTPType = {
-    auth: {
-        id: number
-        isAuth: boolean
-    }
-    profilePage: {
-        userProfile: UserProfileType
-        userStatus: string
-        postsData: []
-    }
-    authId: number
-    isAuth: boolean
-}
-
-export type ProfileProps = ConnectedProps<typeof connector> & RouteComponentProps<{ userId?: string }>
+// export type ProfileProps = ConnectedProps<typeof connector> & RouteComponentProps<{ userId?: string }>
 
 
 export function ProfileCont(props: any) {
@@ -77,7 +56,7 @@ const connector = connect(mapState, {
     deletePost
 })
 
-export const ProfileCC = compose<React.ComponentType>(
+export default compose<React.ComponentType>(
   connector,
   withAuthRedirect,
   withRouter,

@@ -6,7 +6,7 @@ const SEND_MESSAGE: string = "SEND_MESSAGE";
 //types
 type InitialStateType = typeof initialState
 
-type MessagesDataType = Array<MessageType>
+
 export type MessageType = {
     id: number
     text: string
@@ -53,7 +53,7 @@ let initialState = {
 
 type ActionTypes = InferActionTypes<typeof messageActions>
 
-const messagesReducer = (state:InitialStateType = initialState, action: ActionTypes) => {
+const messagesReducer = (state: InitialStateType = initialState, action: ActionTypes) => {
     switch (action.type) {
         case SEND_MESSAGE: {
             let newMessage = {id: 5, text: action.messageText};
@@ -63,12 +63,12 @@ const messagesReducer = (state:InitialStateType = initialState, action: ActionTy
                 // newMessageText: ''
             };
         }
-      // case NEW_MESSAGE_UPDATE: {
-      //     return {
-      //         ...state,
-      //         newMessageText: action.newText
-      //     };
-      // }
+        // case NEW_MESSAGE_UPDATE: {
+        //     return {
+        //         ...state,
+        //         newMessageText: action.newText
+        //     };
+        // }
         default:
             return state;
     }

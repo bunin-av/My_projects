@@ -4,9 +4,10 @@ import {
     addPost,
     deletePost,
     getUserProfile,
-    getUserStatus, loadPhoto, updateMyProfileInfo,
-    updateMyStatus,
-    UserProfileType
+    getUserStatus,
+    loadPhoto,
+    updateMyProfileInfo,
+    updateMyStatus
 } from "../../redux/profile-reducer";
 import {connect, ConnectedProps} from "react-redux";
 import {withRouter} from "react-router-dom";
@@ -15,20 +16,6 @@ import {compose} from "redux";
 import {RouteComponentProps} from "react-router";
 import {RootState} from "../../redux/redux-store";
 
-
-export type MSTPType = {
-    auth: {
-        id: number
-        isAuth: boolean
-    }
-    profilePage: {
-        userProfile: UserProfileType
-        userStatus: string
-        postsData: []
-    }
-    authId: number
-    isAuth: boolean
-}
 
 export type ProfileProps = ConnectedProps<typeof connector>
   & RouteComponentProps<{ userId: string }>

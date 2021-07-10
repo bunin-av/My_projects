@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./Header.module.scss"
 import {NavLink} from "react-router-dom";
 import {HeaderProps} from "./HeaderContainer";
+import logo from "./../../assets/images/logo.png"
 
 const Header = (props: HeaderProps) => {
     return (
       <header className={styles.header}>
           <div className={styles.header__logo}>
-              <img src="https://cdn.logo.com/hotlink-ok/logo-social.png" alt="logo"/>
+              <img src={logo} alt="logo"/>
           </div>
           <div className={styles.login}>
               {

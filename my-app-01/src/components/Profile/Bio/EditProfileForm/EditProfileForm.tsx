@@ -3,11 +3,6 @@ import React from "react";
 import styles from "../../../Login/Login.module.scss";
 
 
-type Props = {
-    state: any
-    saveInfo: (info: UserInfoDataType) => void
-}
-
 export type UserInfoDataType = {
     FullName: string
     AboutMe: string

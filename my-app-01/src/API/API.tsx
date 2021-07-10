@@ -104,5 +104,9 @@ export const authAPI = {
     logOut() {
         return axiosInstance.delete<AuthPost>(`auth/login`)
           .then(response => response.data)
-    }
+    },
+    getCaptcha(){
+        return axiosInstance.get(`security/get-captcha-url`)
+            .then(response => response.data)
+    },
 }
